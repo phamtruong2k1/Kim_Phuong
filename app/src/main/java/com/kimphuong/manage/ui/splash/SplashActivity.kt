@@ -9,6 +9,7 @@ import com.kimphuong.manage.R
 import com.kimphuong.manage.base.BaseActivity
 import com.kimphuong.manage.databinding.ActivitySplashBinding
 import com.kimphuong.manage.ui.main.MainActivity
+import com.kimphuong.manage.ui.sign.SignAccountActivity
 import com.kimphuong.manage.utils.SharePreferenceUtils
 
 class SplashActivity :
@@ -20,8 +21,10 @@ class SplashActivity :
         Handler(Looper.getMainLooper()).postDelayed({
             if (SharePreferenceUtils.getUserLogin(this)){
                 startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                finish()
             } else {
-                startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                startActivity(Intent(this@SplashActivity, SignAccountActivity::class.java))
+                finish()
             }
         },2000L)
     }

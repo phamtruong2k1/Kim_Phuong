@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.sign.SignAccountFragment">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_80sdp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="@dimen/_120sdp"
+                android:layout_height="@dimen/_120sdp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_launcher_background" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_32sdp"
+                android:fontFamily="@font/inter_900"
+                android:text="@string/money_management"
+                android:textAllCaps="true"
+                android:textColor="@color/color_app"
+                android:textSize="@dimen/_22sdp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtSignIn"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginHorizontal="@dimen/_18sdp"
+            android:background="@drawable/bg_btn_color_app"
+            android:text="@string/sign_in"
+            android:textSize="@dimen/_16ssp"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_60sdp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/inter_500"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <TextView
+            android:id="@+id/txtSignUp"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginHorizontal="@dimen/_18sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="@dimen/_16ssp"
+            android:gravity="center"
+            android:textColor="@color/color_app"
+            android:fontFamily="@font/inter_500"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/bg_btn_white_stroke_color_app"
+            android:text="@string/sign_up"
+            app:layout_constraintTop_toBottomOf="@+id/txtSignIn" />
+
+        <TextView
+            android:id="@+id/txtGuest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/continue_as_a_guest"
+            android:textSize="@dimen/_14ssp"
+            android:textColor="@color/color_app"
+            android:fontFamily="@font/inter_400"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="@dimen/_20sdp"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
