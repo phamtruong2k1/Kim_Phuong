@@ -2,52 +2,38 @@ package com.kimphuong.manage.base
 
 import android.Manifest
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.annotation.LayoutRes
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import dagger.android.AndroidInjection
-import dagger.android.support.DaggerAppCompatActivity
-import javax.inject.Inject
+import androidx.viewbinding.ViewBinding
 
-abstract class BaseActivity<VM : BaseViewModel, DB : ViewDataBinding>(private val mViewModelClass: Class<VM>) :
-    DaggerAppCompatActivity() {
+abstract class BaseActivity<VM : BaseViewModel, VB : ViewBinding>(private val mViewModelClass: Class<VM>) :
+    AppCompatActivity() {
 
-
-    @Inject
     internal lateinit var viewModelProviderFactory: ViewModelProvider.Factory
 
-    @LayoutRes
-    abstract fun getLayoutRes(): Int
-
-    val binding by lazy {
-        DataBindingUtil.setContentView(this, getLayoutRes()) as DB
-    }
+    protected lateinit var binding: VB
 
     val viewModel by lazy {
         ViewModelProvider(this, viewModelProviderFactory).get(mViewModelClass)
     }
 
-    /**
-     * If you want to inject Dependency Injection
-     * on your activity, you can override this.
-     */
-    open fun onInject() {}
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
-        //LanguageUtil.loadLocale(this)
-        initViewModel(viewModel)
-        onInject()
-        setupBindingLifecycleOwner()
+        binding = inflateViewBinding(layoutInflater)
+        setContentView(binding.root)
+        initView()
+        initData()
+        initListener()
     }
 
-    abstract fun initViewModel(viewModel: VM)
-
-    private fun setupBindingLifecycleOwner() {
-        binding.lifecycleOwner = this
-    }
+    /**override it and inflate your view binding, demo in MainActivity*/
+    abstract fun inflateViewBinding(inflater: LayoutInflater): VB
+    abstract fun initView()
+    abstract fun initData()
+    abstract fun initListener()
 
     fun getPermission(): Array<String> {
         return arrayOf(

@@ -1,12 +1,9 @@
 package com.kimphuong.manage.ui.sign
 
 import android.content.Intent
-import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
@@ -19,15 +16,21 @@ import com.kimphuong.manage.utils.setOnSafeClick
 
 
 class SignAccountFragment : BaseFragment<SignAccountViewModel, FragmentSignAccountBinding>(
-    R.layout.fragment_sign_account,
     SignAccountViewModel::class.java
 ) {
-    override fun init() {
-        super.init()
-        initListener()
+    override fun inflateLayout(inflater: LayoutInflater, container: ViewGroup?): FragmentSignAccountBinding {
+        return FragmentSignAccountBinding.inflate(inflater, container, false)
     }
 
-    private fun initListener() {
+    override fun initView() {
+
+    }
+
+    override fun initData() {
+
+    }
+
+    override fun initListener() {
 
         binding.txtSignIn.setOnSafeClick {
             findNavController().navigate(R.id.action_signAccountFragment_to_signInFragment)

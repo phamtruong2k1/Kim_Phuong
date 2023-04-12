@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/sign_navigation.xml"
     app:startDestination="@id/signAccountFragment">
 
@@ -8,7 +9,8 @@
     <fragment
         android:id="@+id/signAccountFragment"
         android:name="com.kimphuong.manage.ui.sign.SignAccountFragment"
-        android:label="SignAccountFragment" >
+        android:label="SignAccountFragment"
+        tools:layout="@layout/fragment_sign_account">
         <action
             android:id="@+id/action_signAccountFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
@@ -21,7 +23,8 @@
     <fragment
         android:id="@+id/signInFragment"
         android:name="com.kimphuong.manage.ui.sign.signin.SignInFragment"
-        android:label="SignInFragment" >
+        android:label="SignInFragment"
+        tools:layout="@layout/fragment_sign_in">
         <action
             android:id="@+id/action_signInFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
@@ -30,6 +33,7 @@
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.kimphuong.manage.ui.sign.signup.SignUpFragment"
-        android:label="SignUpFragment" />
+        android:label="SignUpFragment"
+        tools:layout="@layout/fragment_sign_up" />
 
 </navigation>

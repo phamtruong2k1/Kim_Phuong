@@ -1,11 +1,9 @@
 package com.kimphuong.manage.ui.splash
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import com.kimphuong.manage.R
+import android.view.LayoutInflater
 import com.kimphuong.manage.base.BaseActivity
 import com.kimphuong.manage.databinding.ActivitySplashBinding
 import com.kimphuong.manage.ui.main.MainActivity
@@ -14,29 +12,27 @@ import com.kimphuong.manage.utils.SharePreferenceUtils
 
 class SplashActivity :
     BaseActivity<SplashViewModel, ActivitySplashBinding>(SplashViewModel::class.java) {
+    override fun inflateViewBinding(inflater: LayoutInflater): ActivitySplashBinding {
+        return ActivitySplashBinding.inflate(layoutInflater)
+    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
+    override fun initView() {
         Handler(Looper.getMainLooper()).postDelayed({
-            if (SharePreferenceUtils.getUserLogin(this)){
+            if (SharePreferenceUtils.getUserLogin(this)) {
                 startActivity(Intent(this@SplashActivity, MainActivity::class.java))
                 finish()
             } else {
                 startActivity(Intent(this@SplashActivity, SignAccountActivity::class.java))
                 finish()
             }
-        },2000L)
+        }, 2000L)
     }
 
+    override fun initData() {
 
-    override fun getLayoutRes(): Int {
-        return R.layout.activity_splash
     }
 
-    override fun initViewModel(viewModel: SplashViewModel) {}
-
-    override fun onBackPressed() {
+    override fun initListener() {
 
     }
 }
