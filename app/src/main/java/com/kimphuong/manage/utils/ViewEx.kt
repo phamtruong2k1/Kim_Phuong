@@ -1,6 +1,9 @@
 package com.kimphuong.manage.utils
 
+import android.content.Context
 import android.view.View
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 
 fun View.disableView() {
     this.isClickable = false
@@ -19,4 +22,15 @@ fun View.setOnSafeClick(onSafeClickListener: (View) -> Unit) {
         onSafeClickListener(it)
     }
     setOnClickListener(safeClick)
+}
+
+fun Context.showToast(msg: String, isLongDuration: Boolean = false) {
+    val duration = if (isLongDuration) Toast.LENGTH_LONG else Toast.LENGTH_SHORT
+    Toast.makeText(this, msg, duration).show()
+}
+
+fun Fragment.showToast(msg: String, isLongDuration: Boolean = false) {
+    if (isAdded) {
+        requireContext().showToast(msg, isLongDuration)
+    }
 }

@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
-import androidx.navigation.fragment.findNavController
 import com.kimphuong.manage.R
 import com.kimphuong.manage.base.BaseFragment
 import com.kimphuong.manage.databinding.FragmentSignAccountBinding
@@ -31,13 +30,8 @@ class SignAccountFragment : BaseFragment<SignAccountViewModel, FragmentSignAccou
     }
 
     override fun initListener() {
-
-        binding.txtSignIn.setOnSafeClick {
-            findNavController().navigate(R.id.action_signAccountFragment_to_signInFragment)
-        }
-
-        binding.txtSignUp.setOnSafeClick {
-            findNavController().navigate(R.id.action_signAccountFragment_to_signUpFragment)
+        binding.btnSignGoogle.setOnSafeClick {
+            signInGoogle()
         }
 
         binding.txtGuest.setOnSafeClick {
@@ -54,9 +48,13 @@ class SignAccountFragment : BaseFragment<SignAccountViewModel, FragmentSignAccou
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
-    private var isClichBack = false
+    private fun signInGoogle() {
+
+    }
+
+    private var isClickBack = false
     fun onBack() {
-        if (isClichBack) {
+        if (isClickBack) {
             activity?.finish()
         } else {
             Toast.makeText(
@@ -64,9 +62,9 @@ class SignAccountFragment : BaseFragment<SignAccountViewModel, FragmentSignAccou
                 requireContext().getString(R.string.click_back),
                 Toast.LENGTH_SHORT
             ).show()
-            isClichBack = true
+            isClickBack = true
             Handler(Looper.getMainLooper()).postDelayed({
-                isClichBack = false
+                isClickBack = false
             }, 1000L)
         }
     }

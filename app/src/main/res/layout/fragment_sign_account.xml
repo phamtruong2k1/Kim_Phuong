@@ -21,7 +21,7 @@
             android:layout_width="@dimen/_120sdp"
             android:layout_height="@dimen/_120sdp"
             android:layout_gravity="center"
-            android:src="@drawable/ic_launcher_background" />
+            android:src="@drawable/logo" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -36,37 +36,35 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/txtSignIn"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/_45sdp"
-        android:layout_marginHorizontal="@dimen/_18sdp"
-        android:layout_marginTop="76dp"
-        android:background="@drawable/bg_btn_white_stroke_color_app"
-        android:fontFamily="@font/inter_500"
-        android:gravity="center"
-        android:text="@string/sign_in"
-        android:textColor="@color/color_app"
-        android:textSize="@dimen/_16ssp"
+    <LinearLayout
+        android:id="@+id/btn_sign_google"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/bg_button_sign_in_google"
+        android:orientation="horizontal"
+        android:padding="@dimen/_4sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
-    <TextView
-        android:id="@+id/txtSignUp"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/_45sdp"
-        android:layout_marginHorizontal="@dimen/_18sdp"
-        android:layout_marginTop="@dimen/_16sdp"
-        android:background="@drawable/bg_btn_white_stroke_color_app"
-        android:fontFamily="@font/inter_500"
-        android:gravity="center"
-        android:text="@string/sign_up"
-        android:textColor="@color/color_app"
-        android:textSize="@dimen/_16ssp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSignIn" />
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/sign_google" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/inter_500"
+            android:gravity="center"
+            android:text="@string/sign_with_google"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/txtGuest"

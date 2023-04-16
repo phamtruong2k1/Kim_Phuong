@@ -13,9 +13,12 @@
         <entry key="..\:/Kim_Phuong/app/src/main/res/layout/fragment_sign_in.xml" value="0.1550925925925926" />
         <entry key="..\:/Kim_Phuong/app/src/main/res/layout/fragment_sign_up.xml" value="0.1550925925925926" />
         <entry key="..\:/Project/Kim_Phuong/app/src/main/res/drawable/bg_btn_white_stroke_color_app.xml" value="0.25" />
-        <entry key="..\:/Project/Kim_Phuong/app/src/main/res/layout/activity_main.xml" value="0.473731884057971" />
+        <entry key="..\:/Project/Kim_Phuong/app/src/main/res/drawable/bg_button_sign_in_google.xml" value="0.239" />
+        <entry key="..\:/Project/Kim_Phuong/app/src/main/res/drawable/ic_back_date.xml" value="0.239" />
+        <entry key="..\:/Project/Kim_Phuong/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Project/Kim_Phuong/app/src/main/res/layout/activity_sign_account.xml" value="0.33" />
         <entry key="..\:/Project/Kim_Phuong/app/src/main/res/layout/activity_splash.xml" value="0.473731884057971" />
+        <entry key="..\:/Project/Kim_Phuong/app/src/main/res/layout/fragment_manage_money.xml" value="0.4433876811594203" />
         <entry key="..\:/Project/Kim_Phuong/app/src/main/res/layout/fragment_sign_account.xml" value="0.28020833333333334" />
         <entry key="..\:/Project/Kim_Phuong/app/src/main/res/layout/fragment_sign_in.xml" value="0.473731884057971" />
         <entry key="..\:/Project/Kim_Phuong/app/src/main/res/layout/fragment_sign_up.xml" value="0.473731884057971" />
