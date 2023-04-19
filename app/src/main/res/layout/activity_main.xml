@@ -67,6 +67,133 @@
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@id/view_space"
         android:layout_below="@id/tab_layout" />
     <!--    bottom-->
+    <View
+        android:id="@+id/view_space"
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:layout_above="@id/bottom"
+        android:background="@color/gray4" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="8dp">
+
+        <LinearLayout
+            android:id="@+id/layout_btn_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/img_home"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/ic_home_selected" />
+
+            <TextView
+                android:id="@+id/txt_home"
+                style="@style/TextViewBottom"
+                android:layout_width="wrap_content"
+                android:text="@string/bottom_home"
+                android:textColor="@color/color_app" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_btn_statistic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/layout_btn_home"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/img_statistic"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/ic_statistic" />
+
+            <TextView
+                android:id="@+id/txt_statistic"
+                style="@style/TextViewBottom"
+                android:layout_width="wrap_content"
+                android:text="@string/bottom_statistic"
+                android:textColor="@color/gray3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_btn_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/layout_btn_more"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/img_account"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/ic_account" />
+
+            <TextView
+                android:id="@+id/txt_account"
+                style="@style/TextViewBottom"
+                android:layout_width="wrap_content"
+                android:text="@string/bottom_account"
+                android:textColor="@color/gray3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_btn_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="5dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/img_more"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/ic_more" />
+
+            <TextView
+                android:id="@+id/txt_more"
+                style="@style/TextViewBottom"
+                android:layout_width="wrap_content"
+                android:text="@string/bottom_more"
+                android:textColor="@color/gray3" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:src="@drawable/ic_add"
+        app:backgroundTint="@color/color_app" />
 </RelativeLayout>
