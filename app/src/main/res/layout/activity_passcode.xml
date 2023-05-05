@@ -292,4 +292,114 @@
     </LinearLayout>
 
 
+    <LinearLayout
+        android:id="@+id/llChange"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:background="@color/color_app"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imgBack2"
+                android:layout_width="@dimen/_45sdp"
+                android:layout_height="@dimen/_45sdp"
+                android:src="@drawable/ic_back"
+                android:layout_gravity="center"
+                android:padding="@dimen/_15sdp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/inter_500"
+                android:gravity="center_vertical"
+                android:text="Setting passcode"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llSetPasscode"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:background="@color/white">
+
+            <ImageView
+                android:layout_width="@dimen/_45sdp"
+                android:layout_height="match_parent"
+                android:padding="16dp"
+                android:src="@drawable/ic_more_lock"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/inter_500"
+                android:gravity="center_vertical"
+                android:text="Set passcode"/>
+
+            <ImageView
+                android:layout_width="@dimen/_45sdp"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_18sdp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_next_of_more"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/bg_all_more"/>
+
+        <LinearLayout
+            android:id="@+id/llDeletePasscode"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:background="@color/white">
+
+            <ImageView
+                android:layout_width="@dimen/_45sdp"
+                android:layout_height="match_parent"
+                android:padding="16dp"
+                android:src="@drawable/ic_baseline_delete_24"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/inter_500"
+                android:gravity="center_vertical"
+                android:text="Delete passcode"/>
+
+            <ImageView
+                android:layout_width="@dimen/_45sdp"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_18sdp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_next_of_more"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/bg_all_more"/>
+
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

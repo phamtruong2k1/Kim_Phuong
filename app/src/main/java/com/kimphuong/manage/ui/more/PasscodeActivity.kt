@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.kimphuong.manage.R
 import com.kimphuong.manage.databinding.ActivityPasscodeBinding
 import com.kimphuong.manage.utils.SharePreferenceUtils
+import com.kimphuong.manage.utils.gone
+import com.kimphuong.manage.utils.show
 import com.kimphuong.manage.utils.showToast
 
 class PasscodeActivity : AppCompatActivity() {
@@ -19,12 +21,36 @@ class PasscodeActivity : AppCompatActivity() {
         binding = ActivityPasscodeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        if (SharePreferenceUtils.getPassCode(this) == "") {
+            binding.llChange.gone()
+            binding.linearLayout2.show()
+            binding.toolBar.show()
+            binding.layoutPassword.show()
+        } else {
+            binding.llChange.show()
+            binding.linearLayout2.gone()
+            binding.toolBar.gone()
+            binding.layoutPassword.gone()
+        }
 
         initListener()
     }
 
     private fun initListener() {
         binding.imgBack.setOnClickListener {
+            onBackPressed()
+        }
+        binding.imgBack2.setOnClickListener {
+            onBackPressed()
+        }
+        binding.llSetPasscode.setOnClickListener {
+            binding.llChange.gone()
+            binding.linearLayout2.show()
+            binding.toolBar.show()
+            binding.layoutPassword.show()
+        }
+        binding.llDeletePasscode.setOnClickListener {
+            SharePreferenceUtils.setPassCode(this,"")
             onBackPressed()
         }
 
