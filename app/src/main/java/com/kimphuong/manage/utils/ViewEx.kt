@@ -59,3 +59,16 @@ fun Context.openActivity(pClass: Class<out Activity>, isFinish: Boolean = false,
         (this as Activity).finish()
     }
 }
+
+
+fun View.show() {
+    this.visibility = View.VISIBLE
+}
+
+fun View.hide() {
+    this.visibility = View.INVISIBLE
+}
+
+fun View.gone() {
+    this.visibility = View.GONE
+}

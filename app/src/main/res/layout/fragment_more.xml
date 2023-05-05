@@ -98,7 +98,8 @@
         android:id="@+id/llStyle"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_45sdp"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:visibility="gone">
 
         <ImageView
             android:layout_width="@dimen/_45sdp"

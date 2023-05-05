@@ -15,10 +15,10 @@ import com.kimphuong.manage.utils.*
 class MainActivity :
     BaseActivity<MainViewModel, ActivityMainBinding>(MainViewModel::class.java) {
     companion object {
-        const val TAB_HOME = 1
-        const val TAB_STATISTIC = 2
-        const val TAB_ACCOUNT = 3
-        const val TAB_MORE = 4
+        const val TAB_HOME = 0
+        const val TAB_STATISTIC = 1
+        const val TAB_ACCOUNT = 2
+        const val TAB_MORE = 3
     }
 
     override fun inflateViewBinding(inflater: LayoutInflater): ActivityMainBinding {

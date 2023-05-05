@@ -13,10 +13,10 @@ class TabViewAdapter (private val myContext: Context, fm: FragmentManager) : Fra
 
     override fun getItem(position: Int): Fragment {
         return when (position) {
-            1 -> HomeFragment()
-            2 -> StatisticFragment()
-            3 -> AccountFragment()
-            4 -> MoreFragment()
+            0 -> HomeFragment()
+            1 -> StatisticFragment()
+            2 -> AccountFragment()
+            3 -> MoreFragment()
             else -> HomeFragment()
         }
     }

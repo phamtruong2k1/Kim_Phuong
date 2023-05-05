@@ -33,7 +33,7 @@ class MoreFragment : Fragment() {
             }
 
             llPasscode.setOnClickListener {
-                requireContext().openActivity(SyncDataActivity::class.java)
+                requireContext().openActivity(PasscodeActivity::class.java)
             }
         }
     }
