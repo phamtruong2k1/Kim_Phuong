@@ -15,4 +15,6 @@
     <color name="gray3">#828282</color>
     <color name="gray4">#E0E0E0</color>
     <color name="bg_gray">#F2F2F2</color>
+
+    <color name="bg_all_more">#F2F2F2</color>
 </resources>

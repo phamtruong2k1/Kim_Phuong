@@ -4,6 +4,7 @@
     package="com.kimphuong.manage">
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -12,8 +13,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Manage"
-        android:name=".MyApplication"
         tools:targetApi="31">
+        <activity
+            android:name=".ui.more.PasscodeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.more.SyncDataActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.enterdata.EnterDataActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.sign.SignAccountActivity"
             android:exported="true"
@@ -31,9 +42,7 @@
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="true"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

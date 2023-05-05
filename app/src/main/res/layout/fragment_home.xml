@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.home.view.HomeFragment">
+
+    <RelativeLayout
+        android:id="@+id/tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45sdp"
+        android:background="@color/color_app">
+
+        <ImageView
+            android:id="@+id/btn_back_date"
+            android:layout_width="@dimen/_14sdp"
+            android:layout_height="@dimen/_14sdp"
+            android:layout_marginVertical="20dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_back_date" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginHorizontal="10dp"
+            android:layout_toEndOf="@id/btn_back_date"
+            android:fontFamily="@font/inter_400"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp"
+            tools:text="2023" />
+
+        <ImageView
+            android:id="@+id/btn_next_date"
+            android:layout_width="@dimen/_14sdp"
+            android:layout_height="@dimen/_14sdp"
+            android:layout_marginVertical="20dp"
+            android:layout_toEndOf="@id/tv_date"
+            android:src="@drawable/ic_next_date" />
+
+        <ImageView
+            android:id="@+id/btn_search"
+            android:layout_width="@dimen/_14sdp"
+            android:layout_height="@dimen/_14sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginVertical="20dp"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/ic_search" />
+    </RelativeLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tool_bar"
+        android:background="@color/color_app"
+        app:tabIndicatorColor="@color/white"
+        app:tabMode="fixed"
+        app:tabTextAppearance="@style/TabLayoutAllCapFalse"
+        app:tabTextColor="@color/white" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tab_layout" />
+
+</RelativeLayout>
