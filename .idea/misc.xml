@@ -5,6 +5,9 @@
       <map>
         <entry key="..\:/Kim_Phuong/app/src/main/res/drawable/bg.xml" value="0.182" />
         <entry key="..\:/Kim_Phuong/app/src/main/res/drawable/bg_btn_white_stroke_color_app.xml" value="0.182" />
+        <entry key="..\:/Kim_Phuong/app/src/main/res/drawable/bg_txt_income_choose.xml" value="0.261" />
+        <entry key="..\:/Kim_Phuong/app/src/main/res/drawable/bg_txt_not_choose.xml" value="0.261" />
+        <entry key="..\:/Kim_Phuong/app/src/main/res/drawable/bg_white_boder_8sdp.xml" value="0.211" />
         <entry key="..\:/Kim_Phuong/app/src/main/res/drawable/ic_back_date.xml" value="0.212" />
         <entry key="..\:/Kim_Phuong/app/src/main/res/drawable/ic_backup_data.xml" value="0.212" />
         <entry key="..\:/Kim_Phuong/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.261" />
@@ -12,10 +15,13 @@
         <entry key="..\:/Kim_Phuong/app/src/main/res/drawable/ic_next_of_more.xml" value="0.212" />
         <entry key="..\:/Kim_Phuong/app/src/main/res/drawable/ic_round_radio_button_checked.xml" value="0.212" />
         <entry key="..\:/Kim_Phuong/app/src/main/res/drawable/ic_round_radio_button_unchecked.xml" value="0.212" />
+        <entry key="..\:/Kim_Phuong/app/src/main/res/layout/activity_add_account.xml" value="0.33" />
+        <entry key="..\:/Kim_Phuong/app/src/main/res/layout/activity_enter_data.xml" value="0.33" />
         <entry key="..\:/Kim_Phuong/app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="..\:/Kim_Phuong/app/src/main/res/layout/activity_passcode.xml" value="0.33" />
         <entry key="..\:/Kim_Phuong/app/src/main/res/layout/activity_sign_account.xml" value="0.14407866609662248" />
         <entry key="..\:/Kim_Phuong/app/src/main/res/layout/activity_splash.xml" value="0.22" />
+        <entry key="..\:/Kim_Phuong/app/src/main/res/layout/fragment_account.xml" value="0.32222222222222224" />
         <entry key="..\:/Kim_Phuong/app/src/main/res/layout/fragment_home.xml" value="0.32222222222222224" />
         <entry key="..\:/Kim_Phuong/app/src/main/res/layout/fragment_home_weekly.xml" value="0.32222222222222224" />
         <entry key="..\:/Kim_Phuong/app/src/main/res/layout/fragment_manage_money.xml" value="0.32222222222222224" />
@@ -23,6 +29,8 @@
         <entry key="..\:/Kim_Phuong/app/src/main/res/layout/fragment_sign_account.xml" value="0.1550925925925926" />
         <entry key="..\:/Kim_Phuong/app/src/main/res/layout/fragment_sign_in.xml" value="0.1550925925925926" />
         <entry key="..\:/Kim_Phuong/app/src/main/res/layout/fragment_sign_up.xml" value="0.1550925925925926" />
+        <entry key="..\:/Kim_Phuong/app/src/main/res/layout/layout_choose_type_account.xml" value="0.33" />
+        <entry key="..\:/Kim_Phuong/app/src/main/res/layout/layout_dialog_choose_type_account.xml" value="0.25" />
         <entry key="..\:/Project/Kim_Phuong/app/src/main/res/drawable/bg_btn_white_stroke_color_app.xml" value="0.25" />
         <entry key="..\:/Project/Kim_Phuong/app/src/main/res/drawable/bg_button_sign_in_google.xml" value="0.239" />
         <entry key="..\:/Project/Kim_Phuong/app/src/main/res/drawable/ic_back_date.xml" value="0.239" />

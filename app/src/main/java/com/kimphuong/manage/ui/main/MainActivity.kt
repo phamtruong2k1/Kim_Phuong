@@ -115,4 +115,8 @@ class MainActivity :
     private fun TextView.setColorTextSelect() {
         this.setTextColor(ContextCompat.getColor(this@MainActivity, R.color.color_app))
     }
+
+    override fun initViewModel(viewModel: MainViewModel) {
+
+    }
 }

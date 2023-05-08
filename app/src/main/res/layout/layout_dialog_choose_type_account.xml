@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingTop="@dimen/_12sdp"
+    android:paddingBottom="@dimen/_4sdp"
+    android:layout_marginHorizontal="@dimen/_12sdp"
+    android:orientation="vertical"
+    android:background="@drawable/bg_white_boder_8sdp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Type of account"
+        android:textColor="@color/black"
+        android:paddingBottom="@dimen/_8sdp"
+        android:paddingHorizontal="@dimen/_12sdp"
+        android:fontFamily="@font/inter_500"
+        android:textSize="@dimen/_14sdp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcyTypeAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="1"
+        tools:listitem="@layout/layout_choose_type_account"/>
+
+</LinearLayout>

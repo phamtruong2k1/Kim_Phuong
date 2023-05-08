@@ -121,4 +121,8 @@ class SplashActivity :
             }
         }
     }
+
+    override fun initViewModel(viewModel: SplashViewModel) {
+
+    }
 }

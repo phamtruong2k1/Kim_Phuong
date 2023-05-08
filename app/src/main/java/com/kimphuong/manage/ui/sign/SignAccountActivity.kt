@@ -22,4 +22,8 @@ class SignAccountActivity :
     override fun initListener() {
 
     }
+
+    override fun initViewModel(viewModel: SignAccountViewModel) {
+
+    }
 }

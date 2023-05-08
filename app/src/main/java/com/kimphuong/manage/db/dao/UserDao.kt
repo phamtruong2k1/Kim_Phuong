@@ -1,9 +1,27 @@
 package com.kimphuong.manage.db.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.kimphuong.manage.db.entity.AccountEntity
+import com.kimphuong.manage.db.entity.TypeAccountEntity
 
 @Dao
 interface UserDao {
+
+    //Type Account
+
+    @Query("SELECT * FROM type_account")
+    fun getAllTypeAccount(): MutableList<TypeAccountEntity>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun addAllTypeAccount(listData: ArrayList<TypeAccountEntity>): List<Long>
+
+    //Account
+    @Query("SELECT * FROM account WHERE account_id = :type_id")
+    fun getAccountByType(type_id : Int): LiveData<MutableList<AccountEntity>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun addAccount(data: AccountEntity): Long
 
 //    @Query("SELECT * FROM meme")
 //    fun getAllMeme(): MutableList<MemeEntity>

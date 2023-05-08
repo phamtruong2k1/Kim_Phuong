@@ -4,6 +4,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.enterdata.EnterDataActivity">
+
+    <LinearLayout
+        android:id="@+id/tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45sdp"
+        android:background="@color/color_app"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="@dimen/_45sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:src="@drawable/ic_back"
+            android:layout_gravity="center"
+            android:padding="@dimen/_15sdp"/>
+
+        <TextView
+            android:id="@+id/txtTitleAction"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/inter_500"
+            android:gravity="center_vertical"
+            android:text="Income"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_16ssp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        app:layout_constraintTop_toBottomOf="@+id/tool_bar">
+        <TextView
+            android:id="@+id/txtIncome"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Income"
+            android:background="@drawable/bg_txt_income_choose"
+            android:textColor="@color/color_app"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:paddingVertical="@dimen/_2sdp"
+            android:fontFamily="@font/inter_500"
+            android:textSize="@dimen/_12sdp"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/txtExpense"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Expense"
+            android:background="@drawable/bg_txt_not_choose"
+            android:textColor="@color/gray2"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:fontFamily="@font/inter_500"
+            android:textSize="@dimen/_12sdp"
+            android:paddingVertical="@dimen/_2sdp"
+            android:gravity="center"/>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
