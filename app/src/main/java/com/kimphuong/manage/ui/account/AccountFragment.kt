@@ -8,9 +8,14 @@ import android.view.ViewGroup
 import com.kimphuong.manage.R
 import com.kimphuong.manage.base.BaseFragment
 import com.kimphuong.manage.databinding.FragmentAccountBinding
+import com.kimphuong.manage.db.entity.AccountEntity
+import com.kimphuong.manage.utils.DataUtil
 import com.kimphuong.manage.utils.openActivity
 
 class AccountFragment : BaseFragment<AccountViewModel, FragmentAccountBinding>(AccountViewModel::class.java) {
+
+    lateinit var adapter: ShowAccountAdapter
+
     override fun inflateLayout(
         inflater: LayoutInflater,
         container: ViewGroup?
@@ -19,11 +24,36 @@ class AccountFragment : BaseFragment<AccountViewModel, FragmentAccountBinding>(A
     }
 
     override fun initView() {
+        adapter = ShowAccountAdapter(requireContext(), ArrayList(), ArrayList(), object : ShowAccountAdapterListener{
+            override fun click(account : AccountEntity) {
 
+            }
+        })
+
+        binding.rcyAccount.adapter = adapter
     }
 
     override fun initData() {
+        viewModel?.getAllAccount()?.observe(this) {
+            adapter.setData(
+                DataUtil.listTypeAccount,
+                it
+            )
 
+            var asset = 0f
+            var expense = 0f
+            it.forEach {
+                if (it.amount > 0) {
+                    asset += it.amount
+                } else {
+                    expense += it.amount
+                }
+            }
+
+            binding.txtAsset.text = asset.toString()
+            binding.txtExpense.text = expense.toString()
+            binding.txtBalance.text = (asset + expense).toString()
+        }
     }
 
     override fun initListener() {

@@ -11,6 +11,7 @@ class LocalDataSource @Inject constructor(private val userDao: UserDao) {
     fun addAllTypeAccount(listData: ArrayList<TypeAccountEntity>) = userDao.addAllTypeAccount(listData)
 
     fun getAccountByType(type_id : Int) = userDao.getAccountByType(type_id)
+    fun getAllAccount() = userDao.getAllAccount()
     fun addAccount(data: AccountEntity) = userDao.addAccount(data)
 
 }

@@ -17,6 +17,9 @@ interface UserDao {
     fun addAllTypeAccount(listData: ArrayList<TypeAccountEntity>): List<Long>
 
     //Account
+    @Query("SELECT * FROM account")
+    fun getAllAccount() : LiveData<MutableList<AccountEntity>>
+
     @Query("SELECT * FROM account WHERE account_id = :type_id")
     fun getAccountByType(type_id : Int): LiveData<MutableList<AccountEntity>>
 

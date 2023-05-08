@@ -14,4 +14,6 @@ class AccountViewModel @Inject constructor(val localDataSource: LocalDataSource)
         }
     }
 
+    fun getAllAccount() = localDataSource.getAllAccount()
+
 }
