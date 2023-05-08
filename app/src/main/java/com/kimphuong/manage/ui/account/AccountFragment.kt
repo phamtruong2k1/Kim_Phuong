@@ -39,7 +39,6 @@ class AccountFragment : BaseFragment<AccountViewModel, FragmentAccountBinding>(A
                 DataUtil.listTypeAccount,
                 data
             )
-
             var asset = 0f
             var expense = 0f
             data.forEach {
@@ -49,7 +48,6 @@ class AccountFragment : BaseFragment<AccountViewModel, FragmentAccountBinding>(A
                     expense += it.amount
                 }
             }
-
             binding.txtAsset.text = asset.toString()
             binding.txtExpense.text = expense.toString()
             binding.txtBalance.text = (asset + expense).toString()

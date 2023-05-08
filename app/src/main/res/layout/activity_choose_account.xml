@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.enterdata.choose.ChooseAccountActivity">
+    tools:context=".ui.enterdata.choose.ChooseAccountActivity"
+    android:background="@color/gray5">
 
     <LinearLayout
+        android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_45sdp"
         android:background="@color/color_app"
@@ -18,9 +20,9 @@
             android:id="@+id/imgBack"
             android:layout_width="@dimen/_45sdp"
             android:layout_height="@dimen/_45sdp"
-            android:src="@drawable/ic_back"
             android:layout_gravity="center"
-            android:padding="@dimen/_15sdp"/>
+            android:padding="@dimen/_15sdp"
+            android:src="@drawable/ic_back" />
 
         <TextView
             android:layout_width="0dp"
@@ -36,9 +38,22 @@
             android:id="@+id/imgAdd"
             android:layout_width="@dimen/_45sdp"
             android:layout_height="@dimen/_45sdp"
-            android:src="@drawable/ic_add_account"
             android:layout_gravity="center"
-            android:padding="@dimen/_15sdp"/>
+            android:padding="@dimen/_15sdp"
+            android:src="@drawable/ic_add_account" />
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcyAccount"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+        app:spanCount="1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

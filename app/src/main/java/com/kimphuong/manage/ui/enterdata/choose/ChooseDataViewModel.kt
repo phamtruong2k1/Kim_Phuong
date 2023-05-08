@@ -5,4 +5,10 @@ import com.kimphuong.manage.db.LocalDataSource
 import javax.inject.Inject
 
 class ChooseDataViewModel @Inject constructor(val localDataSource: LocalDataSource) : BaseViewModel() {
+
+    fun getListCategory(type : Boolean) = localDataSource.getListCategory(type)
+
+
+    fun getAllAccount() = localDataSource.getAllAccount()
+
 }

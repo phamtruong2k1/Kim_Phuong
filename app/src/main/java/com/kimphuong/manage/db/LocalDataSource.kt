@@ -19,6 +19,7 @@ class LocalDataSource @Inject constructor(private val userDao: UserDao) {
 
     //fun getAccountByType(type_id : Int) = userDao.getAccountByType(type_id)
     fun getAllCategory() = userDao.getAllAccount()
+    fun getListCategory(type : Boolean) = userDao.getListCategory(type)
     fun addCategory(data: CategoryEntity) = userDao.addCategory(data)
     fun addAllCategory(data: List<CategoryEntity>) = userDao.addAllCategory(data)
     fun deleteCategory(categoryEntity: CategoryEntity) = userDao.deleteCategory(categoryEntity)

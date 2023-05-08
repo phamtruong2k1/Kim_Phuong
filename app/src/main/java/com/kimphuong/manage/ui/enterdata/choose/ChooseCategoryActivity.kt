@@ -9,6 +9,9 @@ import com.kimphuong.manage.databinding.ActivityChooseAccountBinding
 import com.kimphuong.manage.databinding.ActivityChooseCategoryBinding
 
 class ChooseCategoryActivity : BaseActivity<ChooseDataViewModel, ActivityChooseCategoryBinding>(ChooseDataViewModel::class.java) {
+
+    var typeChoose = true
+
     override fun initViewModel(viewModel: ChooseDataViewModel) {
 
     }
@@ -18,11 +21,13 @@ class ChooseCategoryActivity : BaseActivity<ChooseDataViewModel, ActivityChooseC
     }
 
     override fun initView() {
-
+        typeChoose = intent.getBooleanExtra("type", true)
     }
 
     override fun initData() {
+        viewModel.getListCategory(typeChoose).observe(this) {
 
+        }
     }
 
     override fun initListener() {

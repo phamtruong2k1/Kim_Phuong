@@ -34,6 +34,9 @@ interface UserDao {
     @Query("SELECT * FROM category")
     fun getAllCategory() : LiveData<MutableList<CategoryEntity>>
 
+    @Query("SELECT * FROM category WHERE type = :type")
+    fun getListCategory(type : Boolean) : LiveData<MutableList<CategoryEntity>>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addCategory(data: CategoryEntity): Long
 
