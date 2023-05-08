@@ -23,7 +23,7 @@ data class AccountEntity @JvmOverloads constructor(
 ) : Parcelable {
 
     companion object {
-        fun toUser(jsonData: String): AccountEntity? {
+        fun toAccountEntity(jsonData: String): AccountEntity? {
             return Gson().fromJson(jsonData, AccountEntity::class.java)
         }
     }

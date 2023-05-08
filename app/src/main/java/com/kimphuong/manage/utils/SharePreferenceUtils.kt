@@ -25,7 +25,7 @@ object SharePreferenceUtils {
 
     fun isFirstOpen(context: Context): Boolean {
         val pre = context.getSharedPreferences(PER_NAME, Context.MODE_PRIVATE)
-        return pre.getBoolean("isFirstOpen", false)
+        return pre.getBoolean("isFirstOpen", true)
     }
 
     //PassCode

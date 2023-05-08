@@ -2,6 +2,7 @@ package com.kimphuong.manage.ui.splash
 
 import com.kimphuong.manage.base.BaseViewModel
 import com.kimphuong.manage.db.LocalDataSource
+import com.kimphuong.manage.db.entity.CategoryEntity
 import com.kimphuong.manage.db.entity.TypeAccountEntity
 import org.jetbrains.anko.doAsync
 import javax.inject.Inject
@@ -11,6 +12,12 @@ class SplashViewModel @Inject constructor(val localDataSource: LocalDataSource) 
     fun addFirstTypeAccount(list: ArrayList<TypeAccountEntity>) {
         doAsync {
             localDataSource.addAllTypeAccount(list)
+        }
+    }
+
+    fun addCategory(data : List<CategoryEntity>) {
+        doAsync {
+            localDataSource.addAllCategory(data)
         }
     }
 

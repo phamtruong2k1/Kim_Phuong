@@ -13,6 +13,8 @@ data class CategoryEntity @JvmOverloads constructor(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "category_id")
     var category_id: Int,
+    @ColumnInfo(name = "type")
+    var type: Boolean,
     @ColumnInfo(name = "name")
     var name : String ,
     @ColumnInfo(name = "icon")
@@ -20,7 +22,7 @@ data class CategoryEntity @JvmOverloads constructor(
 ) : Parcelable {
 
     companion object {
-        fun toUser(jsonData: String): CategoryEntity? {
+        fun toCategory(jsonData: String): CategoryEntity? {
             return Gson().fromJson(jsonData, CategoryEntity::class.java)
         }
     }

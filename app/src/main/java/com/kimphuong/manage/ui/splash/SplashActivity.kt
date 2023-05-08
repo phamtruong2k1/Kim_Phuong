@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import com.kimphuong.manage.R
 import com.kimphuong.manage.base.BaseActivity
 import com.kimphuong.manage.databinding.ActivitySplashBinding
+import com.kimphuong.manage.db.entity.CategoryEntity
 import com.kimphuong.manage.ui.main.MainActivity
 import com.kimphuong.manage.utils.SharePreferenceUtils
 import com.kimphuong.manage.utils.show
@@ -41,6 +42,27 @@ class SplashActivity :
     }
 
     private fun initFirstData() {
+        viewModel.addCategory(
+            listOf(
+                CategoryEntity(1,true, "Salary", R.drawable.ic_cash),
+                CategoryEntity(2,true, "Allowance", R.drawable.ic_allowance),
+                CategoryEntity(3,true, "Bonus", R.drawable.ic_bonus),
+                CategoryEntity(4,true, "Other", R.drawable.ic_other_account),
+
+
+                CategoryEntity(5,false, "Food", R.drawable.ic_cate_food),
+                CategoryEntity(6,false, "Health", R.drawable.ic_cate_health),
+                CategoryEntity(7,false, "Transportation", R.drawable.ic_cate_transp),
+                CategoryEntity(8,false, "Hobby", R.drawable.ic_cate_bobby),
+                CategoryEntity(9,false, "Fashion", R.drawable.ic_cate_fashion),
+                CategoryEntity(10,false, "Education", R.drawable.ic_cate_education),
+                CategoryEntity(11,false, "Event", R.drawable.ic_cate_event),
+                CategoryEntity(12,false, "Beauty care", R.drawable.ic_cate_beauty_care),
+                CategoryEntity(13,false, "Daily life", R.drawable.ic_cate_daily_life),
+                CategoryEntity(14,false, "Other", R.drawable.ic_other_account)
+            )
+        )
+        SharePreferenceUtils.setFirstOpen(this, false)
         startMain()
     }
 

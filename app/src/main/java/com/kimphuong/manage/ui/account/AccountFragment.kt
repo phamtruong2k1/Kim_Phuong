@@ -34,15 +34,15 @@ class AccountFragment : BaseFragment<AccountViewModel, FragmentAccountBinding>(A
     }
 
     override fun initData() {
-        viewModel?.getAllAccount()?.observe(this) {
+        viewModel?.getAllAccount()?.observe(this) { data ->
             adapter.setData(
                 DataUtil.listTypeAccount,
-                it
+                data
             )
 
             var asset = 0f
             var expense = 0f
-            it.forEach {
+            data.forEach {
                 if (it.amount > 0) {
                     asset += it.amount
                 } else {

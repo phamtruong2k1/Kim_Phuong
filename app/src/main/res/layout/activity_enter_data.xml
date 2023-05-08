@@ -36,38 +36,239 @@
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_16sdp"
         android:layout_marginHorizontal="@dimen/_16sdp"
-        app:layout_constraintTop_toBottomOf="@+id/tool_bar">
+        android:layout_marginTop="@dimen/_16sdp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/tool_bar"
+        tools:layout_editor_absoluteX="21dp">
+
         <TextView
             android:id="@+id/txtIncome"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:text="Income"
-            android:background="@drawable/bg_txt_income_choose"
-            android:textColor="@color/color_app"
             android:layout_marginEnd="@dimen/_8sdp"
-            android:paddingVertical="@dimen/_2sdp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_txt_income_choose"
             android:fontFamily="@font/inter_500"
-            android:textSize="@dimen/_12sdp"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:paddingVertical="@dimen/_2sdp"
+            android:text="Income"
+            android:textColor="@color/color_app"
+            android:textSize="@dimen/_12sdp" />
+
         <TextView
             android:id="@+id/txtExpense"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:text="Expense"
-            android:background="@drawable/bg_txt_not_choose"
-            android:textColor="@color/gray2"
             android:layout_marginStart="@dimen/_8sdp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_txt_not_choose"
             android:fontFamily="@font/inter_500"
-            android:textSize="@dimen/_12sdp"
+            android:gravity="center"
             android:paddingVertical="@dimen/_2sdp"
-            android:gravity="center"/>
+            android:text="Expense"
+            android:textColor="@color/gray2"
+            android:textSize="@dimen/_12sdp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/_12sdp"
+        android:paddingTop="@dimen/_12sdp"
+        android:paddingBottom="@dimen/_12sdp"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/inter_500"
+                android:gravity="center_vertical"
+                android:text="Account"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp" />
+
+            <EditText
+                android:id="@+id/edtAccount"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:focusable="false"
+                android:fontFamily="@font/inter_400"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/inter_500"
+                android:gravity="center_vertical"
+                android:text="Category"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp" />
+
+            <EditText
+                android:id="@+id/edtCategory"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:focusable="false"
+                android:fontFamily="@font/inter_400"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/inter_500"
+                android:gravity="center_vertical"
+                android:text="Amount"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp" />
+
+            <EditText
+                android:id="@+id/edtAmount"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/inter_400"
+                android:inputType="numberDecimal"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/inter_500"
+                android:gravity="center_vertical"
+                android:text="Note"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp" />
+
+            <EditText
+                android:id="@+id/edtNote"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/inter_400"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/inter_500"
+                android:gravity="center_vertical"
+                android:text="Memory"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp" />
+
+            <EditText
+                android:id="@+id/edtMemory"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/inter_400"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtSave"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:background="@drawable/bg_button_sign_in_google"
+            android:fontFamily="@font/inter_500"
+            android:gravity="center"
+            android:text="Save"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llChooseAccount"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.35"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="vertical">
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/llChooseCategory"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gray2">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Category" />
+
+
+        </LinearLayout>
+
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

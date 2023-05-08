@@ -15,4 +15,5 @@ object DataUtil {
         TypeAccountEntity(7,"Loan", R.drawable.ic_loan),
         TypeAccountEntity(8,"Other", R.drawable.ic_other_account)
     )
+
 }

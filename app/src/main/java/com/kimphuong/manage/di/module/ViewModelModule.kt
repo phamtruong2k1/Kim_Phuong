@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.kimphuong.manage.di.ViewModelFactory
 import com.kimphuong.manage.di.key.ViewModelKey
 import com.kimphuong.manage.ui.account.AccountViewModel
+import com.kimphuong.manage.ui.enterdata.EnterDataViewModel
+import com.kimphuong.manage.ui.enterdata.choose.ChooseDataViewModel
 import com.kimphuong.manage.ui.main.MainViewModel
 import com.kimphuong.manage.ui.splash.SplashViewModel
 import dagger.Binds
@@ -35,6 +37,16 @@ abstract class ViewModelModule {
     @Binds
     @ViewModelKey(MainViewModel::class)
     abstract fun provideMainViewModel(mainViewModel: MainViewModel): ViewModel
+
+    @IntoMap
+    @Binds
+    @ViewModelKey(EnterDataViewModel::class)
+    abstract fun provideEnterDataViewModel(enterDataViewModel: EnterDataViewModel): ViewModel
+
+    @IntoMap
+    @Binds
+    @ViewModelKey(ChooseDataViewModel::class)
+    abstract fun provideChooseDataViewModel(chooseDataViewModel: ChooseDataViewModel): ViewModel
 
 
 }

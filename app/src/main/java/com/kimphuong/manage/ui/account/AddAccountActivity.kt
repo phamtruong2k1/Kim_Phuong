@@ -3,23 +3,16 @@ package com.kimphuong.manage.ui.account
 import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.Window
-import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.kimphuong.manage.R
 import com.kimphuong.manage.base.BaseActivity
 import com.kimphuong.manage.databinding.ActivityAddAccountBinding
-import com.kimphuong.manage.databinding.ActivitySplashBinding
 import com.kimphuong.manage.db.entity.AccountEntity
-import com.kimphuong.manage.ui.splash.SplashViewModel
 import com.kimphuong.manage.utils.DataUtil
 import com.kimphuong.manage.utils.showToast
-import java.lang.Exception
 
 class AddAccountActivity : BaseActivity<AccountViewModel, ActivityAddAccountBinding>(AccountViewModel::class.java) {
 

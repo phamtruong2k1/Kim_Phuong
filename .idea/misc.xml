@@ -16,7 +16,9 @@
         <entry key="..\:/Kim_Phuong/app/src/main/res/drawable/ic_round_radio_button_checked.xml" value="0.212" />
         <entry key="..\:/Kim_Phuong/app/src/main/res/drawable/ic_round_radio_button_unchecked.xml" value="0.212" />
         <entry key="..\:/Kim_Phuong/app/src/main/res/layout/activity_add_account.xml" value="0.33" />
-        <entry key="..\:/Kim_Phuong/app/src/main/res/layout/activity_enter_data.xml" value="0.33" />
+        <entry key="..\:/Kim_Phuong/app/src/main/res/layout/activity_choose_account.xml" value="0.2162037037037037" />
+        <entry key="..\:/Kim_Phuong/app/src/main/res/layout/activity_choose_category.xml" value="0.2162037037037037" />
+        <entry key="..\:/Kim_Phuong/app/src/main/res/layout/activity_enter_data.xml" value="0.25" />
         <entry key="..\:/Kim_Phuong/app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="..\:/Kim_Phuong/app/src/main/res/layout/activity_passcode.xml" value="0.33" />
         <entry key="..\:/Kim_Phuong/app/src/main/res/layout/activity_sign_account.xml" value="0.14407866609662248" />

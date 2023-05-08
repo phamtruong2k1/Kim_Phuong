@@ -3,6 +3,7 @@ package com.kimphuong.manage.db.dao
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.kimphuong.manage.db.entity.AccountEntity
+import com.kimphuong.manage.db.entity.CategoryEntity
 import com.kimphuong.manage.db.entity.TypeAccountEntity
 
 @Dao
@@ -25,6 +26,22 @@ interface UserDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addAccount(data: AccountEntity): Long
+
+    @Delete
+    fun deleteAccount(accountEntity: AccountEntity): Int
+
+    //Category
+    @Query("SELECT * FROM category")
+    fun getAllCategory() : LiveData<MutableList<CategoryEntity>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun addCategory(data: CategoryEntity): Long
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun addAllCategory(data: List<CategoryEntity>): List<Long>
+
+    @Delete
+    fun deleteCategory(categoryEntity: CategoryEntity): Int
 
 //    @Query("SELECT * FROM meme")
 //    fun getAllMeme(): MutableList<MemeEntity>
