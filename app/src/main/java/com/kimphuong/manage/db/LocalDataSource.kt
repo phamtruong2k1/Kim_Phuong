@@ -3,6 +3,7 @@ package com.kimphuong.manage.db
 import com.kimphuong.manage.db.dao.UserDao
 import com.kimphuong.manage.db.entity.AccountEntity
 import com.kimphuong.manage.db.entity.CategoryEntity
+import com.kimphuong.manage.db.entity.TransactionEntity
 import com.kimphuong.manage.db.entity.TypeAccountEntity
 import javax.inject.Inject
 
@@ -24,4 +25,6 @@ class LocalDataSource @Inject constructor(private val userDao: UserDao) {
     fun addAllCategory(data: List<CategoryEntity>) = userDao.addAllCategory(data)
     fun deleteCategory(categoryEntity: CategoryEntity) = userDao.deleteCategory(categoryEntity)
 
+
+    fun addTransaction(data : TransactionEntity) = userDao.addTransaction(data)
 }

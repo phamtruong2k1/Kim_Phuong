@@ -12,6 +12,8 @@ import com.kimphuong.manage.ui.account.AddAccountActivity
 import com.kimphuong.manage.ui.account.ShowAccountAdapter
 import com.kimphuong.manage.ui.account.ShowAccountAdapterListener
 import com.kimphuong.manage.utils.DataUtil
+import com.kimphuong.manage.utils.DialogUtil
+import com.kimphuong.manage.utils.EventActionEditAndDelete
 import com.kimphuong.manage.utils.openActivity
 
 class ChooseAccountActivity : BaseActivity<ChooseDataViewModel, ActivityChooseAccountBinding>(ChooseDataViewModel::class.java) {
@@ -37,7 +39,19 @@ class ChooseAccountActivity : BaseActivity<ChooseDataViewModel, ActivityChooseAc
             }
 
             override fun longClick(account: AccountEntity) {
+                DialogUtil.showDialogBottomSheetEditAndDelete(this@ChooseAccountActivity, object :
+                    EventActionEditAndDelete {
+                    override fun edit() {
+                        val intent = Intent(this@ChooseAccountActivity, AddAccountActivity::class.java)
+                        intent.putExtra("action", "edit")
+                        intent.putExtra("data", account.toJson())
+                        startActivity(intent)
+                    }
 
+                    override fun delete() {
+                        viewModel.deleteAccount(account)
+                    }
+                })
             }
         })
 

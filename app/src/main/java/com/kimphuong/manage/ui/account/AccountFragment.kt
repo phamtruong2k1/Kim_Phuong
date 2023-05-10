@@ -1,5 +1,6 @@
 package com.kimphuong.manage.ui.account
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +11,8 @@ import com.kimphuong.manage.base.BaseFragment
 import com.kimphuong.manage.databinding.FragmentAccountBinding
 import com.kimphuong.manage.db.entity.AccountEntity
 import com.kimphuong.manage.utils.DataUtil
+import com.kimphuong.manage.utils.DialogUtil
+import com.kimphuong.manage.utils.EventActionEditAndDelete
 import com.kimphuong.manage.utils.openActivity
 
 class AccountFragment : BaseFragment<AccountViewModel, FragmentAccountBinding>(AccountViewModel::class.java) {
@@ -30,7 +33,18 @@ class AccountFragment : BaseFragment<AccountViewModel, FragmentAccountBinding>(A
             }
 
             override fun longClick(account: AccountEntity) {
+                DialogUtil.showDialogBottomSheetEditAndDelete(requireActivity(), object : EventActionEditAndDelete{
+                    override fun edit() {
+                        val intent = Intent(requireContext(), AddAccountActivity::class.java)
+                        intent.putExtra("action", "edit")
+                        intent.putExtra("data", account.toJson())
+                        startActivity(intent)
+                    }
 
+                    override fun delete() {
+                        viewModel?.deleteAccount(account)
+                    }
+                })
             }
         })
 

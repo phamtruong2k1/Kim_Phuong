@@ -23,7 +23,19 @@ class AddAccountActivity : BaseActivity<AccountViewModel, ActivityAddAccountBind
     }
 
     override fun initView() {
-        showNameCate()
+        if (intent.getStringExtra("action") == "edit") {
+            intent.getStringExtra("data")?.let {
+                AccountEntity.toAccountEntity(it)?.let { it1 ->
+                    account = it1
+                    binding.edtAccount.setText(DataUtil.listTypeAccount[account.type_account_id-1].name)
+                    binding.edtName.setText(account.name)
+                    binding.edtAmount.setText("${account.amount}")
+                    binding.txtTitleAction.text = "Edit Account"
+                }
+            }
+        } else {
+            showNameCate()
+        }
     }
 
     override fun initData() {

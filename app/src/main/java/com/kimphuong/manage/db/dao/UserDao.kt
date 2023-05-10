@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.kimphuong.manage.db.entity.AccountEntity
 import com.kimphuong.manage.db.entity.CategoryEntity
+import com.kimphuong.manage.db.entity.TransactionEntity
 import com.kimphuong.manage.db.entity.TypeAccountEntity
 
 @Dao
@@ -45,6 +46,9 @@ interface UserDao {
 
     @Delete
     fun deleteCategory(categoryEntity: CategoryEntity): Int
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun addTransaction(data : TransactionEntity) : Long
 
 //    @Query("SELECT * FROM meme")
 //    fun getAllMeme(): MutableList<MemeEntity>
