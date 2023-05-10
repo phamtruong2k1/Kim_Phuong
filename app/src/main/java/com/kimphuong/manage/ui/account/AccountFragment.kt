@@ -28,6 +28,10 @@ class AccountFragment : BaseFragment<AccountViewModel, FragmentAccountBinding>(A
             override fun click(account : AccountEntity) {
 
             }
+
+            override fun longClick(account: AccountEntity) {
+
+            }
         })
 
         binding.rcyAccount.adapter = adapter

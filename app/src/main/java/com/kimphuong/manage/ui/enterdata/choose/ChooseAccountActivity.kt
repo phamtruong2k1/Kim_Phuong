@@ -1,5 +1,6 @@
 package com.kimphuong.manage.ui.enterdata.choose
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -29,6 +30,13 @@ class ChooseAccountActivity : BaseActivity<ChooseDataViewModel, ActivityChooseAc
         adapter = ShowAccountAdapter(this, ArrayList(), ArrayList(), object :
             ShowAccountAdapterListener {
             override fun click(account : AccountEntity) {
+                val data = Intent()
+                data.putExtra("data", account.toJson())
+                setResult(111, data)
+                finish()
+            }
+
+            override fun longClick(account: AccountEntity) {
 
             }
         })

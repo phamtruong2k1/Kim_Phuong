@@ -12,27 +12,27 @@ import kotlinx.android.parcel.Parcelize
 data class TransactionEntity @JvmOverloads constructor(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "transaction_id")
-    var transaction_id: Int,
+    var transaction_id: Int = 0,
     @ColumnInfo(name = "category_id")
-    var category_id: Int,
+    var category_id: Int = 0,
     @ColumnInfo(name = "account_id")
-    var account_id: Int,
+    var account_id: Int = 0,
     @ColumnInfo(name = "day")
-    var day : Int,
+    var day : Int = 0,
     @ColumnInfo(name = "month")
-    var month : Int,
+    var month : Int = 0,
     @ColumnInfo(name = "year")
-    var year : Int,
+    var year : Int = 0,
     @ColumnInfo(name = "hour")
-    var hour : Int,
+    var hour : Int = 0,
     @ColumnInfo(name = "min")
-    var min : Int,
+    var min : Int = 0,
     @ColumnInfo(name = "amount")
-    var amount : Float,
+    var amount : Float = 0f,
     @ColumnInfo(name = "type")
-    var type : Boolean,
+    var type : Boolean = true,
     @ColumnInfo(name = "note")
-    var note : String,
+    var note : String = "",
 ) : Parcelable {
 
     companion object {

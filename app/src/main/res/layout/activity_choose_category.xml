@@ -7,6 +7,7 @@
     tools:context=".ui.enterdata.choose.ChooseCategoryActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout6"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_45sdp"
         android:background="@color/color_app"
@@ -18,9 +19,9 @@
             android:id="@+id/imgBack"
             android:layout_width="@dimen/_45sdp"
             android:layout_height="@dimen/_45sdp"
-            android:src="@drawable/ic_back"
             android:layout_gravity="center"
-            android:padding="@dimen/_15sdp"/>
+            android:padding="@dimen/_15sdp"
+            android:src="@drawable/ic_back" />
 
         <TextView
             android:layout_width="0dp"
@@ -36,9 +37,20 @@
             android:id="@+id/imgAdd"
             android:layout_width="@dimen/_45sdp"
             android:layout_height="@dimen/_45sdp"
-            android:src="@drawable/ic_add_account"
             android:layout_gravity="center"
-            android:padding="@dimen/_15sdp"/>
+            android:padding="@dimen/_15sdp"
+            android:src="@drawable/ic_add_account" />
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcyCategory"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scrollbars="none"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
+        app:spanCount="1"
+        tools:listitem="@layout/layout_category_adapter" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -31,6 +31,8 @@
         <entry key="..\:/Kim_Phuong/app/src/main/res/layout/fragment_sign_account.xml" value="0.1550925925925926" />
         <entry key="..\:/Kim_Phuong/app/src/main/res/layout/fragment_sign_in.xml" value="0.1550925925925926" />
         <entry key="..\:/Kim_Phuong/app/src/main/res/layout/fragment_sign_up.xml" value="0.1550925925925926" />
+        <entry key="..\:/Kim_Phuong/app/src/main/res/layout/layout_category_adapter.xml" value="0.35462962962962963" />
+        <entry key="..\:/Kim_Phuong/app/src/main/res/layout/layout_choose_list_account_adapter.xml" value="0.35462962962962963" />
         <entry key="..\:/Kim_Phuong/app/src/main/res/layout/layout_choose_type_account.xml" value="0.33" />
         <entry key="..\:/Kim_Phuong/app/src/main/res/layout/layout_dialog_choose_type_account.xml" value="0.25" />
         <entry key="..\:/Kim_Phuong/app/src/main/res/layout/layout_item_show_account_adapter.xml" value="0.3212962962962963" />

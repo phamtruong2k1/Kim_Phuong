@@ -64,6 +64,10 @@ class ShowAccountAdapter(
                 override fun click(account : AccountEntity) {
                     listener.click(account)
                 }
+
+                override fun longClick(account: AccountEntity) {
+                    listener.longClick(account)
+                }
             })
             rcyAccount.adapter = adapter
         } else {
@@ -84,4 +88,5 @@ class ShowAccountAdapter(
 
 interface ShowAccountAdapterListener {
     fun click(account : AccountEntity)
+    fun longClick(account : AccountEntity)
 }

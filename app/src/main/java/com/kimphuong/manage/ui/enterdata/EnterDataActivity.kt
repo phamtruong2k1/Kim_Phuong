@@ -8,13 +8,15 @@ import com.kimphuong.manage.R
 import com.kimphuong.manage.base.BaseActivity
 import com.kimphuong.manage.databinding.ActivityEnterDataBinding
 import com.kimphuong.manage.db.entity.AccountEntity
+import com.kimphuong.manage.db.entity.CategoryEntity
+import com.kimphuong.manage.db.entity.TransactionEntity
 import com.kimphuong.manage.ui.enterdata.choose.ChooseAccountActivity
 import com.kimphuong.manage.ui.enterdata.choose.ChooseCategoryActivity
 
 class EnterDataActivity : BaseActivity<EnterDataViewModel, ActivityEnterDataBinding>(EnterDataViewModel::class.java) {
 
 
-
+    val transactionEntity = TransactionEntity()
 
     override fun initView() {
 
@@ -34,7 +36,9 @@ class EnterDataActivity : BaseActivity<EnterDataViewModel, ActivityEnterDataBind
         }
 
         binding.edtCategory.setOnClickListener {
-            startActivityForResult(Intent(this@EnterDataActivity, ChooseCategoryActivity::class.java), 222)
+            val intent = Intent(this@EnterDataActivity, ChooseCategoryActivity::class.java)
+            intent.putExtra("type", transactionEntity.type)
+            startActivityForResult(intent, 222)
         }
     }
 
@@ -44,16 +48,14 @@ class EnterDataActivity : BaseActivity<EnterDataViewModel, ActivityEnterDataBind
         if (requestCode == 111) {
             if (data != null) {
                 data.getStringExtra("data")?.let {
-                    AccountEntity.toAccountEntity(it).let {
-
-                    }
+                    AccountEntity.toAccountEntity(it)?.let { it1 -> updateUiChooseAccount(it1) }
                 }
             }
         } else if (requestCode == 222) {
             if (data != null) {
                 data.getStringExtra("data")?.let {
-                    AccountEntity.toAccountEntity(it).let {
-
+                    CategoryEntity.toCategory(it)?.let { it1 ->
+                        updateUiChooseCategory(it1)
                     }
                 }
             }
@@ -61,9 +63,20 @@ class EnterDataActivity : BaseActivity<EnterDataViewModel, ActivityEnterDataBind
         }
     }
 
+    private fun updateUiChooseAccount(accountEntity: AccountEntity) {
+        binding.edtAccount.setText(accountEntity.name)
+        transactionEntity.account_id = accountEntity.account_id
+    }
+
+    private fun updateUiChooseCategory(categoryEntity: CategoryEntity) {
+        binding.edtCategory.setText(categoryEntity.name)
+        transactionEntity.category_id = categoryEntity.category_id
+    }
+
 
     override fun inflateViewBinding(inflater: LayoutInflater): ActivityEnterDataBinding {
         return ActivityEnterDataBinding.inflate(layoutInflater)
     }
+
     override fun initViewModel(viewModel: EnterDataViewModel) { }
 }

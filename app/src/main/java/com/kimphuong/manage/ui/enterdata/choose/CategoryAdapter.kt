@@ -1,5 +1,6 @@
-package com.kimphuong.manage.ui.account
+package com.kimphuong.manage.ui.enterdata.choose
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -10,25 +11,26 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.kimphuong.manage.R
 import com.kimphuong.manage.db.entity.AccountEntity
+import com.kimphuong.manage.db.entity.CategoryEntity
 import com.kimphuong.manage.db.entity.TypeAccountEntity
+import com.kimphuong.manage.ui.account.ListAccountAdapter
 import com.kimphuong.manage.utils.DataUtil
 
-class ListAccountAdapter(
+class CategoryAdapter(
     var context: Context,
-    var listData: List<AccountEntity>,
-    private val listener: ListAccountAdapterListener
-) : RecyclerView.Adapter<ListAccountAdapter.ViewHolder>() {
+    var listData: List<CategoryEntity>,
+    private val listener: CategoryAdapterListener
+) : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var root: LinearLayout = view.findViewById(R.id.llRoot)
         var txtTitleType: TextView = view.findViewById(R.id.txtTitleType)
-        var txtAmount: TextView = view.findViewById(R.id.txtAmount)
         var imgIcon: ImageView = view.findViewById(R.id.imgIcon)
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(viewGroup.context)
-            .inflate(R.layout.layout_list_account_adapter, viewGroup, false)
+            .inflate(R.layout.layout_category_adapter, viewGroup, false)
 
         return ViewHolder(view)
     }
@@ -38,10 +40,8 @@ class ListAccountAdapter(
 
         viewHolder.txtTitleType.text = data.name
         viewHolder.imgIcon.setImageResource(
-            DataUtil.listTypeAccount[data.type_account_id-1].icon
+            data.icon
         )
-
-        viewHolder.txtAmount.text = data.amount.toString()
 
         viewHolder.root.setOnClickListener {
             listener.click(data)
@@ -56,9 +56,15 @@ class ListAccountAdapter(
 
     override fun getItemCount() = listData.size
 
+    @SuppressLint("NotifyDataSetChanged")
+    fun setData(list: List<CategoryEntity>) {
+        listData = list
+        notifyDataSetChanged()
+    }
+
 }
 
-interface ListAccountAdapterListener {
-    fun click(account : AccountEntity)
-    fun longClick(account : AccountEntity)
+interface CategoryAdapterListener {
+    fun click(categoryEntity : CategoryEntity)
+    fun longClick(categoryEntity : CategoryEntity)
 }
