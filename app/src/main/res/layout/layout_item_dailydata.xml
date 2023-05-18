@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/imgIcon"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="52dp"
+        android:padding="@dimen/_10sdp"
+        android:src="@drawable/ic_cash" />
+
+    <TextView
+        android:id="@+id/tvCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:text="@string/app_name"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/imgIcon"
+        android:textSize="@dimen/_13sdp"
+        app:layout_constraintLeft_toRightOf="@id/imgIcon" />
+
+    <TextView
+        android:id="@+id/tvAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:text="@string/app_name"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:textSize="@dimen/_13sdp"
+        android:layout_alignParentRight="true"/>
+
+    <TextView
+        android:id="@+id/tvAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/_3sdp"
+        android:gravity="center_vertical"
+        android:layout_toRightOf="@id/tvCategory"
+        android:text="@string/app_name"
+        android:textSize="@dimen/_13sdp"
+        app:layout_constraintRight_toLeftOf="@id/tvAmount" />
+</RelativeLayout>

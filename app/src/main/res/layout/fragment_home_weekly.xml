@@ -1,14 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.home.weekly.HomeWeeklyFragment">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_top"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/tv_title_income"
+            style="@style/TextViewMoney"
+            android:layout_width="0dp"
+            android:text="@string/txt_in_come"
+            app:layout_constraintEnd_toStartOf="@id/tv_title_expense"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_title_expense"
+            style="@style/TextViewMoney"
+            android:layout_width="0dp"
+            android:text="@string/txt_expense"
+            app:layout_constraintEnd_toStartOf="@id/tv_title_total"
+            app:layout_constraintStart_toEndOf="@id/tv_title_income"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_title_total"
+            style="@style/TextViewMoney"
+            android:layout_width="0dp"
+            android:text="@string/txt_total"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_title_expense"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_income"
+            style="@style/TextViewMoney"
+            android:layout_width="0dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/color_app"
+            app:layout_constraintEnd_toStartOf="@id/tv_title_expense"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_income"
+            tools:text="15.000.000" />
+
+        <TextView
+            android:id="@+id/tv_expense"
+            style="@style/TextViewMoney"
+            android:layout_width="0dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/red"
+            app:layout_constraintEnd_toStartOf="@id/tv_total"
+            app:layout_constraintStart_toEndOf="@id/tv_income"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_expense"
+            tools:text="2.000.000" />
+
+        <TextView
+            android:id="@+id/tv_total"
+            style="@style/TextViewMoney"
+            android:layout_width="0dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/gray2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_expense"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_total"
+            tools:text="13.000.000" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvDataWeekly"
+        android:layout_below="@id/layout_top"
+        tools:listitem="@layout/layout_item_month_weekly"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:id="@+id/layoutNoData"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/bi_database_fill_x"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"/>
+        <TextView
+            android:textSize="@dimen/_15sdp"
+            android:text="No Data Available"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -23,10 +23,6 @@ data class TransactionEntity @JvmOverloads constructor(
     var month : Int = 0,
     @ColumnInfo(name = "year")
     var year : Int = 0,
-    @ColumnInfo(name = "hour")
-    var hour : Int = 0,
-    @ColumnInfo(name = "min")
-    var min : Int = 0,
     @ColumnInfo(name = "amount")
     var amount : Float = 0f,
     @ColumnInfo(name = "type")
@@ -36,7 +32,7 @@ data class TransactionEntity @JvmOverloads constructor(
 ) : Parcelable {
 
     companion object {
-        fun toUser(jsonData: String): TransactionEntity? {
+        fun toTransaction(jsonData: String): TransactionEntity? {
             return Gson().fromJson(jsonData, TransactionEntity::class.java)
         }
     }

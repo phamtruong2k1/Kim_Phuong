@@ -37,6 +37,21 @@
     <string name="november">November</string>
     <string name="december">December</string>
 
+    <string-array name="array_month">
+        <item>@string/january</item>
+        <item>@string/february</item>
+        <item>@string/march</item>
+        <item>@string/april</item>
+        <item>@string/may</item>
+        <item>@string/june</item>
+        <item>@string/july</item>
+        <item>@string/august</item>
+        <item>@string/september</item>
+        <item>@string/october</item>
+        <item>@string/november</item>
+        <item>@string/december</item>
+    </string-array>
+
     <string name="txt_in_come">Income</string>
     <string name="txt_expense">Expense</string>
     <string name="txt_total">Total</string>

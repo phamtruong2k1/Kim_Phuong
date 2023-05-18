@@ -33,13 +33,6 @@
             android:textColor="@color/white"
             android:textSize="@dimen/_16ssp" />
 
-        <ImageView
-            android:id="@+id/imgAdd"
-            android:layout_width="@dimen/_45sdp"
-            android:layout_height="@dimen/_45sdp"
-            android:layout_gravity="center"
-            android:padding="@dimen/_15sdp"
-            android:src="@drawable/ic_add_account" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

@@ -16,9 +16,9 @@ data class AccountEntity @JvmOverloads constructor(
     var account_id: Int = 0,
     @ColumnInfo(name = "type_account_id")
     var type_account_id: Int = 1,
-    @ColumnInfo(name = "name")
+    @ColumnInfo(name = "account_name")
     var name : String = "",
-    @ColumnInfo(name = "amount")
+    @ColumnInfo(name = "account_amount")
     var amount : Float = 0f
 ) : Parcelable {
 

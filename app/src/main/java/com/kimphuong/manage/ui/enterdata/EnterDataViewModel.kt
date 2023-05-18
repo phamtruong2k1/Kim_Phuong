@@ -6,7 +6,8 @@ import com.kimphuong.manage.db.entity.TransactionEntity
 import org.jetbrains.anko.doAsync
 import javax.inject.Inject
 
-class EnterDataViewModel @Inject constructor(val localDataSource: LocalDataSource) : BaseViewModel() {
+class EnterDataViewModel @Inject constructor(val localDataSource: LocalDataSource) :
+    BaseViewModel() {
 
     fun saveEnterData(transactionEntity: TransactionEntity) {
         doAsync {
@@ -14,4 +15,15 @@ class EnterDataViewModel @Inject constructor(val localDataSource: LocalDataSourc
         }
     }
 
+    fun getTransactionById(id: Int)  = localDataSource.getTransactionById(id)
+
+    fun getCategoryById(id : Int) = localDataSource.getCategoryById(id)
+
+    fun getAccountById(id: Int) = localDataSource.getAccountById(id)
+
+    fun deleteTransaction(transactionEntity: TransactionEntity) {
+        doAsync {
+            localDataSource.deleteTransaction(transactionEntity)
+        }
+    }
 }

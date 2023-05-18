@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 
 fun View.disableView() {
     this.isClickable = false
-    this.postDelayed({ this.isClickable = true }, 1000)
+    this.postDelayed({ this.isClickable = true }, 100)
 }
 
 class SafeClickListener(val onSafeClickListener: (View) -> Unit) : View.OnClickListener {

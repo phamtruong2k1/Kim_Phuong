@@ -8,7 +8,7 @@ fun getCurrentYear(): Int = Calendar.getInstance().get(Calendar.YEAR)
 fun getCurrentMonthInt(): Int = Calendar.getInstance().get(Calendar.MONTH) + 1
 fun getCurrentDayOfMonth(): Int = Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
 
-fun Context.getCurrentDaily(): String {
+fun Context.getCurrentDaily(i:Int): String {
     val listOfMonth = mutableListOf(
         getString(R.string.january),
         getString(R.string.february),
@@ -23,9 +23,11 @@ fun Context.getCurrentDaily(): String {
         getString(R.string.november),
         getString(R.string.december)
     )
-    val day = getCurrentDayOfMonth()
-    val month = getCurrentMonthInt()
-    val year = getCurrentYear()
+    val calendar = Calendar.getInstance()
+    calendar.add(Calendar.DAY_OF_MONTH,i)
+    val day = calendar.get(Calendar.DAY_OF_MONTH)
+    val month = calendar.get(Calendar.MONTH) + 1
+    val year = calendar.get(Calendar.YEAR)
     return if (day < 10) {
         "0$day ${listOfMonth[month - 1]} $year"
     } else {

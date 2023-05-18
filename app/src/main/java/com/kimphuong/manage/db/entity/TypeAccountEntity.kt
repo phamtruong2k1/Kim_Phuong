@@ -13,9 +13,9 @@ data class TypeAccountEntity @JvmOverloads constructor(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "type_account_id")
     var type_account_id: Int,
-    @ColumnInfo(name = "name")
+    @ColumnInfo(name = "type_account_name")
     var name : String,
-    @ColumnInfo(name = "icon")
+    @ColumnInfo(name = "account_icon")
     var icon : Int
 ) : Parcelable {
 

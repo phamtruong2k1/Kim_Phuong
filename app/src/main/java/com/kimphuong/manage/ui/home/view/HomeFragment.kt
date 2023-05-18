@@ -1,5 +1,6 @@
 package com.kimphuong.manage.ui.home.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,22 +9,23 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayout
 import com.kimphuong.manage.R
 import com.kimphuong.manage.databinding.FragmentHomeBinding
-import com.kimphuong.manage.ui.main.FragmentManageMoney
-import com.kimphuong.manage.ui.main.MainActivity
+import com.kimphuong.manage.ui.home.calender.HomeCalenderFragment
+import com.kimphuong.manage.ui.home.daily.HomeDailyFragment
+import com.kimphuong.manage.ui.home.monthly.HomeMonthlyFragment
+import com.kimphuong.manage.ui.home.weekly.HomeWeeklyFragment
 import com.kimphuong.manage.ui.main.TabLayoutAdapter
-import com.kimphuong.manage.utils.Constant
-import com.kimphuong.manage.utils.getCurrentDaily
-import com.kimphuong.manage.utils.getCurrentMonthly
-import com.kimphuong.manage.utils.getCurrentYear
-import com.kimphuong.manage.utils.setOnSafeClick
-import com.kimphuong.manage.utils.showToast
+import com.kimphuong.manage.ui.search.SearchActivity
+import com.kimphuong.manage.utils.*
 
 class HomeFragment : Fragment() {
 
-    private lateinit var binding : FragmentHomeBinding
+    private lateinit var binding: FragmentHomeBinding
 
-    private lateinit var tabLayoutAdapter : TabLayoutAdapter
+    private lateinit var tabLayoutAdapter: TabLayoutAdapter
 
+    private var currentPage = 0
+
+    private var index = 0
 
 
     override fun onCreateView(
@@ -40,7 +42,7 @@ class HomeFragment : Fragment() {
         setUpViewPager()
         binding.viewPager.adapter = tabLayoutAdapter
         binding.tabLayout.setupWithViewPager(binding.viewPager)
-        binding.tvDate.text = requireContext().getCurrentDaily()
+        binding.tvDate.text = requireContext().getCurrentDaily(index)
         initListener()
     }
 
@@ -56,22 +58,22 @@ class HomeFragment : Fragment() {
         )
         tabLayoutAdapter.addFragment(
             mutableListOf(
-                FragmentManageMoney().apply {
+                HomeDailyFragment().apply {
                     val bundle = Bundle()
                     bundle.putInt(Constant.TAB_KEY, Constant.TAB_DAILY)
                     arguments = bundle
                 },
-                FragmentManageMoney().apply {
+                HomeWeeklyFragment().apply {
                     val bundle = Bundle()
                     bundle.putInt(Constant.TAB_KEY, Constant.TAB_WEEKLY)
                     arguments = bundle
                 },
-                FragmentManageMoney().apply {
+                HomeMonthlyFragment().apply {
                     val bundle = Bundle()
                     bundle.putInt(Constant.TAB_KEY, Constant.TAB_MONTHLY)
                     arguments = bundle
                 },
-                FragmentManageMoney().apply {
+                HomeCalenderFragment().apply {
                     val bundle = Bundle()
                     bundle.putInt(Constant.TAB_KEY, Constant.TAB_CALENDAR)
                     arguments = bundle
@@ -84,33 +86,34 @@ class HomeFragment : Fragment() {
     fun initListener() {
         with(binding) {
             btnBackDate.setOnSafeClick {
-                showToast("back")
+                handleOnClickBack()
             }
             btnNextDate.setOnSafeClick {
-                showToast("next")
+                handleOnCLickNext()
             }
             btnSearch.setOnSafeClick {
-                showToast("search")
+                startActivity(Intent(requireContext(),SearchActivity::class.java))
             }
             tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
                 override fun onTabSelected(tab: TabLayout.Tab?) {
-                    binding.tvDate.text = when (tab?.position?.plus(1)) {
+                    binding.tvDate.text = when (tab?.position) {
                         Constant.TAB_DAILY -> {
-                            requireContext().getCurrentDaily()
+                            requireContext().getCurrentDaily(index)
                         }
                         Constant.TAB_WEEKLY -> {
-                            "${getCurrentYear()}"
+                            (tabLayoutAdapter.getItem(1) as HomeWeeklyFragment).getCurrentYear()
                         }
                         Constant.TAB_MONTHLY -> {
-                            requireContext().getCurrentMonthly()
+                            (tabLayoutAdapter.getItem(2) as HomeMonthlyFragment).getCurrentYear()
                         }
                         Constant.TAB_CALENDAR -> {
-                            "${getCurrentYear()}"
+                            (tabLayoutAdapter.getItem(3) as HomeCalenderFragment).getCurrentMonth(requireContext())
                         }
                         else -> {
                             "${getCurrentYear()}"
                         }
                     }
+                    currentPage = tab?.position ?: 0
                 }
 
                 override fun onTabUnselected(tab: TabLayout.Tab?) {
@@ -122,5 +125,74 @@ class HomeFragment : Fragment() {
                 }
             })
         }
+    }
+
+    private fun handleOnCLickNext() {
+        when (currentPage) {
+            Constant.TAB_DAILY -> {
+                index += 1
+                (tabLayoutAdapter.getItem(currentPage) as HomeDailyFragment).updateDataFollowDay(
+                    1
+                )
+                binding.tvDate.text = requireContext().getCurrentDaily(index)
+            }
+            Constant.TAB_WEEKLY -> {
+                (tabLayoutAdapter.getItem(currentPage) as HomeWeeklyFragment).updateDataFollowYear(
+                    1
+                )
+                binding.tvDate.text = (tabLayoutAdapter.getItem(currentPage) as HomeWeeklyFragment).getCurrentYear()
+            }
+
+            Constant.TAB_MONTHLY -> {
+                (tabLayoutAdapter.getItem(currentPage) as HomeMonthlyFragment).updateDataFollowYear(
+                    1
+                )
+
+                binding.tvDate.text = (tabLayoutAdapter.getItem(currentPage) as HomeMonthlyFragment).getCurrentYear()
+            }
+
+            Constant.TAB_CALENDAR -> {
+                (tabLayoutAdapter.getItem(currentPage) as HomeCalenderFragment).updateDataFollowMonth(
+                    1
+                )
+
+                binding.tvDate.text = (tabLayoutAdapter.getItem(currentPage) as HomeCalenderFragment).getCurrentMonth(requireContext())
+            }
+        }
+    }
+
+    private fun handleOnClickBack() {
+        when (currentPage) {
+            Constant.TAB_DAILY -> {
+                index -= 1
+                (tabLayoutAdapter.getItem(currentPage) as HomeDailyFragment).updateDataFollowDay(
+                    -1
+                )
+                binding.tvDate.text = requireContext().getCurrentDaily(index)
+            }
+            Constant.TAB_WEEKLY -> {
+                (tabLayoutAdapter.getItem(currentPage) as HomeWeeklyFragment).updateDataFollowYear(
+                    -1
+                )
+                binding.tvDate.text = (tabLayoutAdapter.getItem(currentPage) as HomeWeeklyFragment).getCurrentYear()
+            }
+
+            Constant.TAB_MONTHLY -> {
+                (tabLayoutAdapter.getItem(currentPage) as HomeMonthlyFragment).updateDataFollowYear(-1)
+
+                binding.tvDate.text = (tabLayoutAdapter.getItem(currentPage) as HomeMonthlyFragment).getCurrentYear()
+            }
+
+            Constant.TAB_CALENDAR -> {
+                (tabLayoutAdapter.getItem(currentPage) as HomeCalenderFragment).updateDataFollowMonth(-1)
+
+                binding.tvDate.text = (tabLayoutAdapter.getItem(currentPage) as HomeCalenderFragment).getCurrentMonth(requireContext())
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        //reload data
     }
 }

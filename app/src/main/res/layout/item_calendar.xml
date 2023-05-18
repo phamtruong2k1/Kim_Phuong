@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <TextView
+            android:id="@+id/tvDay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_1sdp"
+            android:textColor="@color/black"
+            tools:text="20" />
+
+        <TextView
+            android:id="@+id/tvExpend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginVertical="3dp"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:textSize="@dimen/_8sdp"
+            android:gravity="end"
+            android:textColor="@color/red"
+            tools:text="20" />
+
+        <TextView
+            android:id="@+id/tvTotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvExpend"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:textSize="@dimen/_8sdp"
+            android:gravity="end"
+            tools:text="20" />
+
+        <TextView
+            android:id="@+id/tvIncome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/tvExpend"
+            android:gravity="end"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:textSize="@dimen/_8sdp"
+            android:textColor="@color/color_app"
+            tools:text="20" />
+        <View
+            android:id="@+id/vDivider"
+            android:background="@color/gray3"
+            android:layout_width="1dp"
+            android:layout_alignParentRight="true"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
+</RelativeLayout>

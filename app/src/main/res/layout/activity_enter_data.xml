@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_45sdp"
         android:background="@color/color_app"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -26,13 +27,24 @@
 
         <TextView
             android:id="@+id/txtTitleAction"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="match_parent"
             android:fontFamily="@font/inter_500"
             android:gravity="center_vertical"
             android:text="Income"
             android:textColor="@color/white"
             android:textSize="@dimen/_16ssp" />
+
+        <ImageView
+            android:id="@+id/imgDelete"
+            android:visibility="gone"
+            android:layout_width="@dimen/_45sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:src="@drawable/ic_delete"
+            android:layout_gravity="center"
+            android:padding="@dimen/_12sdp"
+            app:tint="@color/white" />
     </LinearLayout>
 
     <LinearLayout

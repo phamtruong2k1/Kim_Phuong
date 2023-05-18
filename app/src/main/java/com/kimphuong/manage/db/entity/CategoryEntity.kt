@@ -15,10 +15,10 @@ data class CategoryEntity @JvmOverloads constructor(
     var category_id: Int,
     @ColumnInfo(name = "type")
     var type: Boolean,
-    @ColumnInfo(name = "name")
-    var name : String ,
-    @ColumnInfo(name = "icon")
-    var icon : Int
+    @ColumnInfo(name = "category_name")
+    var name: String,
+    @ColumnInfo(name = "category_icon")
+    var icon: Int
 ) : Parcelable {
 
     companion object {

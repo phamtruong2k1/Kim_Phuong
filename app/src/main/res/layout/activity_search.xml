@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:background="@color/color_app"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="@dimen/_45sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:src="@drawable/ic_back"
+            android:layout_gravity="center"
+            android:padding="@dimen/_15sdp"/>
+
+        <TextView
+            android:id="@+id/txtTitleAction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imgBack"
+            android:fontFamily="@font/inter_500"
+            android:gravity="center_vertical"
+            android:text="Search"
+            android:layout_centerVertical="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_16ssp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:background="@color/color_app"
+        android:layout_width="match_parent"
+        android:paddingHorizontal="20dp"
+        android:paddingBottom="10dp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:background="@drawable/bg_search"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <ImageView
+                android:src="@drawable/ic_search"
+                android:padding="15dp"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                app:tint="@color/black" />
+            <EditText
+                android:id="@+id/edtSearch"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvSearch"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"
+        tools:listitem="@layout/layout_item_dailydata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

@@ -50,7 +50,9 @@ class ChooseCategoryActivity : BaseActivity<ChooseDataViewModel, ActivityChooseC
     }
 
     override fun initListener() {
-
+        binding.imgBack.setOnClickListener {
+            onBackPressed()
+        }
     }
 
 }
