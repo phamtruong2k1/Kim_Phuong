@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.kimphuong.manage.R
+import com.kimphuong.manage.base.toMoney
 import com.kimphuong.manage.databinding.LayoutItemDailydataBinding
 import com.kimphuong.manage.db.entity.TransactionDetail
 
@@ -23,7 +24,7 @@ class DailyDataAdapter(
         fun bind(data: TransactionDetail) {
             binding.imgIcon.setImageResource(data.category_icon)
             binding.tvAccount.text = "(${if (isSearch) data.note else data.account_name})"
-            binding.tvAmount.text = data.amount.toInt().toString()
+            binding.tvAmount.text = data.amount.toInt().toMoney()
             binding.tvAmount.setTextColor(
                 if (!data.type) Color.RED else ContextCompat.getColor(
                     context,

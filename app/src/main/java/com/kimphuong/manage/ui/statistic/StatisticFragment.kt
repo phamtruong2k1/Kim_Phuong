@@ -219,8 +219,6 @@ class StatisticFragment : BaseFragment<MainViewModel, FragmentStatisticBinding>(
                     }
             }
         }
-        Log.d("abcc", "filterData: ${calFirstWeek.time} ${calendar.get(Calendar.MONTH)}")
-        Log.d("abcc", "filterData: $listDataFilter")
 
         val setCategory = HashSet<Pair<Int, String>>()
         var sum = 0f

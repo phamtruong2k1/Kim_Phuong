@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.kimphuong.manage.base.BaseFragment
 import com.kimphuong.manage.base.getStringMonth
+import com.kimphuong.manage.base.toMoney
 import com.kimphuong.manage.databinding.FragmentHomeMonthlyBinding
 import com.kimphuong.manage.db.entity.DataDetail
 import com.kimphuong.manage.db.entity.TransactionDetail
@@ -63,9 +64,9 @@ class HomeMonthlyFragment : BaseFragment<MainViewModel, FragmentHomeMonthlyBindi
 
         val sumIncome = listDataFilter.filter { it.type }.sumOf { it.amount.toInt() }
         val sumExpend = listDataFilter.filter { !it.type }.sumOf { it.amount.toInt() }
-        binding.tvIncome.text = sumIncome.toString()
-        binding.tvExpense.text = sumExpend.toString()
-        binding.tvTotal.text = (sumIncome - sumExpend).toString()
+        binding.tvIncome.text = sumIncome.toMoney()
+        binding.tvExpense.text = sumExpend.toMoney()
+        binding.tvTotal.text = (sumIncome - sumExpend).toMoney()
         filterData()
     }
 

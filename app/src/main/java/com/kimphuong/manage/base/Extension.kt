@@ -1,8 +1,19 @@
 package com.kimphuong.manage.base
 
+import android.app.Activity
+import android.app.Dialog
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.util.Log
+import android.view.LayoutInflater
+import android.widget.ProgressBar
 import androidx.appcompat.app.AlertDialog
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.kimphuong.manage.R
+import com.kimphuong.manage.databinding.ProgressBlockingUserBinding
+import java.text.DecimalFormat
+import java.text.SimpleDateFormat
 import java.util.*
 
 fun Calendar.toDateMonth(): String {
@@ -50,4 +61,50 @@ fun Calendar.isToday(): Boolean {
 
 fun Calendar.toDateString():String{
     return "${this.get(Calendar.DAY_OF_MONTH)}/${this.get(Calendar.MONTH)+1}/${this.get(Calendar.YEAR)}"
+}
+
+fun Activity.getInstanceProgressBar(callback: ((ProgressBar) -> Unit)? = null): Dialog {
+    val builder = AlertDialog.Builder(this)
+    val binding = ProgressBlockingUserBinding.inflate(LayoutInflater.from(this))
+    callback?.invoke(binding.pbBlocking)
+    builder.setView(binding.root)
+    val dialog: AlertDialog = builder.create()
+    dialog.setCancelable(false)
+    dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+    dialog.setCanceledOnTouchOutside(false)
+    return dialog
+}
+
+fun Calendar.parseToString(format: String): String {
+    val sdf = SimpleDateFormat(format, Locale.getDefault())
+    sdf.timeZone = TimeZone.getTimeZone("UTC")
+    return sdf.format(this.time)
+}
+
+fun Int.toMoney():String{
+    val formatter = DecimalFormat("#,###")
+    return formatter.format(this.toDouble()).replace(',','.')
+}
+
+
+
+fun Context.showAlertDialog(
+    title: String? = null,
+    message: String? = null,
+    textPosBtn: String = "OK",
+    callback: () -> Unit = {}
+) {
+    val builder = AlertDialog.Builder(this)
+    builder.apply {
+        title?.let {
+            setTitle(it)
+        }
+        message?.let {
+            setMessage(it)
+        }
+        setPositiveButton(textPosBtn) { _, _ ->
+            callback()
+        }
+        show()
+    }
 }

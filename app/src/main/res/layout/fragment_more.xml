@@ -94,36 +94,6 @@
         android:layout_height="1dp"
         android:background="@color/bg_all_more"/>
 
-    <LinearLayout
-        android:id="@+id/llStyle"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_45sdp"
-        android:background="@color/white"
-        android:visibility="gone">
-
-        <ImageView
-            android:layout_width="@dimen/_45sdp"
-            android:layout_height="match_parent"
-            android:padding="16dp"
-            android:src="@drawable/ic_style"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:textSize="@dimen/_14ssp"
-            android:textColor="@color/black"
-            android:fontFamily="@font/inter_500"
-            android:gravity="center_vertical"
-            android:text="Style"/>
-
-        <ImageView
-            android:layout_width="@dimen/_45sdp"
-            android:layout_height="match_parent"
-            android:padding="@dimen/_18sdp"
-            android:src="@drawable/ic_next_of_more"/>
-
-    </LinearLayout>
 
     <View
         android:layout_width="match_parent"

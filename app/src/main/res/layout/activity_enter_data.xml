@@ -197,6 +197,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/inter_400"
                 android:inputType="numberDecimal"
+                android:maxLength="9"
                 android:text=""
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12ssp" />

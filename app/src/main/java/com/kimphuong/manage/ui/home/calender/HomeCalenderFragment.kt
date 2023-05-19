@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import com.kimphuong.manage.base.BaseFragment
 import com.kimphuong.manage.base.getStringMonth
 import com.kimphuong.manage.base.isToday
+import com.kimphuong.manage.base.toMoney
 import com.kimphuong.manage.databinding.FragmentHomeCalenderBinding
 import com.kimphuong.manage.db.entity.DayData
 import com.kimphuong.manage.db.entity.TransactionDetail
@@ -55,9 +56,9 @@ class HomeCalenderFragment : BaseFragment<MainViewModel, FragmentHomeCalenderBin
 
         val sumIncome = listDataFilter.filter { it.type }.sumOf { it.amount.toInt() }
         val sumExpend = listDataFilter.filter { !it.type }.sumOf { it.amount.toInt() }
-        binding.tvIncome.text = sumIncome.toString()
-        binding.tvExpense.text = sumExpend.toString()
-        binding.tvTotal.text = (sumIncome - sumExpend).toString()
+        binding.tvIncome.text = sumIncome.toMoney()
+        binding.tvExpense.text = sumExpend.toMoney()
+        binding.tvTotal.text = (sumIncome - sumExpend).toMoney()
         filterData()
     }
 

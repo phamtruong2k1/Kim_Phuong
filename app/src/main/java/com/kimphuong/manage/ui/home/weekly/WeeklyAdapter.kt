@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.kimphuong.manage.base.toMoney
 import com.kimphuong.manage.databinding.LayoutItemWeeklyBinding
 import com.kimphuong.manage.db.entity.DataDetail
 
@@ -13,8 +14,8 @@ class WeeklyAdapter(var context: Context, var listData:List<DataDetail>):Recycle
     inner class WeeklyViewHolder(val binding:LayoutItemWeeklyBinding):ViewHolder(binding.root) {
         fun bind(dataDetail: DataDetail){
             binding.tvPeriod.text = dataDetail.period
-            binding.tvIncome.text = dataDetail.income.toString()
-            binding.tvExpend.text = dataDetail.expend.toString()
+            binding.tvIncome.text = dataDetail.income.toMoney()
+            binding.tvExpend.text = dataDetail.expend.toMoney()
         }
     }
 

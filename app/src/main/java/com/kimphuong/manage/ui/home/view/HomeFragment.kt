@@ -2,6 +2,7 @@ package com.kimphuong.manage.ui.home.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,7 +39,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        tabLayoutAdapter = TabLayoutAdapter(requireActivity().supportFragmentManager)
+        tabLayoutAdapter = TabLayoutAdapter(childFragmentManager)
         setUpViewPager()
         binding.viewPager.adapter = tabLayoutAdapter
         binding.tabLayout.setupWithViewPager(binding.viewPager)
@@ -194,5 +195,15 @@ class HomeFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         //reload data
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("abcc", "onPause: ")
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Log.d("abcc", "onDestroyView: ")
     }
 }

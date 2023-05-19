@@ -5,6 +5,8 @@ import com.kimphuong.manage.db.entity.AccountEntity
 import com.kimphuong.manage.db.entity.CategoryEntity
 import com.kimphuong.manage.db.entity.TransactionEntity
 import com.kimphuong.manage.db.entity.TypeAccountEntity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class LocalDataSource @Inject constructor(private val userDao: UserDao) {
@@ -37,4 +39,22 @@ class LocalDataSource @Inject constructor(private val userDao: UserDao) {
     fun getAllTransactionDetail() = userDao.getAllTransactionDetail()
 
     fun deleteTransaction(transactionEntity: TransactionEntity) = userDao.deleteTransaction(transactionEntity)
+    fun getAllTransaction() = userDao.getAllTransaction()
+
+    suspend fun deleteAllData() = withContext(Dispatchers.IO) {
+        userDao.deleteAllAccount()
+        userDao.deleteAllCategory()
+        userDao.deleteAllTransaction()
+        userDao.deleteAllTypeAccount()
+    }
+
+    suspend fun insertAllData(listAccount:List<AccountEntity>, listTypeAccount:List<TypeAccountEntity>, listCategory:List<CategoryEntity>, listTransaction:List<TransactionEntity>)
+        = withContext(Dispatchers.IO){
+        userDao.insertAllTypeAccount(listTypeAccount)
+        userDao.insertAllAccount(listAccount)
+        userDao.insertAllCategory(listCategory)
+        userDao.insertAllTransaction(listTransaction)
+    }
+
+
 }

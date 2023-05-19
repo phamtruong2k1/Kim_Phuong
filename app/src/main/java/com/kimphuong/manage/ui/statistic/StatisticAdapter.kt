@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.kimphuong.manage.base.toMoney
 import com.kimphuong.manage.databinding.ItemStatisticBinding
 import com.kimphuong.manage.db.entity.DataStatistic
 import org.jetbrains.anko.backgroundColor
@@ -15,7 +16,7 @@ class StatisticAdapter(var context: Context, var listData: List<DataStatistic>, 
     inner class StatisticViewHolder(val binding: ItemStatisticBinding) : ViewHolder(binding.root) {
         fun bind(dataStatistic: DataStatistic) {
             if (total!=0f){
-                binding.tvAmount.text = dataStatistic.amount.toString()
+                binding.tvAmount.text = dataStatistic.amount.toMoney()
                 binding.tvCategoryName.text = dataStatistic.name
                 binding.imgIcon.setImageDrawable(dataStatistic.icon)
                 binding.tvPercent.text = String.format("%.1f%%", dataStatistic.amount / total * 100)

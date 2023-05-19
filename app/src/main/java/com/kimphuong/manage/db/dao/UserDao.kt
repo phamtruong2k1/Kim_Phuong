@@ -29,7 +29,7 @@ interface UserDao {
     fun getAccountByType(type_id: Int): LiveData<MutableList<AccountEntity>>
 
     @Query("SELECT * FROM `transaction` WHERE transaction_id = :id")
-    fun  getTransactionById(id: Int): LiveData<TransactionEntity>
+    fun getTransactionById(id: Int): LiveData<TransactionEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addAccount(data: AccountEntity): Long
@@ -62,58 +62,31 @@ interface UserDao {
     @Delete
     fun deleteTransaction(transactionEntity: TransactionEntity): Int
 
-//    @Query("SELECT * FROM meme")
-//    fun getAllMeme(): MutableList<MemeEntity>
-//
-//    @Query("SELECT Count(*) FROM meme")
-//    fun getCountMeme(): LiveData<Int>
-//
-//    @Query(
-//        "SELECT * FROM meme " +
-//                "WHERE tab in (:list) " +
-//                "ORDER BY \n" +
-//                "CASE WHEN :isAsc = 1 THEN name END ASC,\n" +
-//                "CASE WHEN :isAsc = 2 THEN name END DESC"
-//    )
-//    fun getTabMeme(list: List<String>, isAsc: Int): MutableList<MemeEntity>
-//
-//    @Insert(onConflict = OnConflictStrategy.REPLACE)
-//    fun addAllMeme(listData: ArrayList<MemeEntity>): List<Long>
-//
-//    @Query("delete from meme where id in (:listData)")
-//    fun deleteAllMeme(listData: List<String>)
-//
-//    @Query("SELECT id FROM meme")
-//    fun getAllIdOfMeme(): MutableList<String>
-//
-////    @Query("delete from meme")
-////    fun deleteAllMeme() : List<Long>
-//
-//    @Query(
-//        "SELECT * FROM user " +
-//                "ORDER BY \n" +
-//                "CASE WHEN :isAsc = 1 THEN name END ASC ,\n" +
-//                "CASE WHEN :isAsc = 2 THEN name END DESC"
-//    )
-//    fun getListUser(isAsc: Int): MutableList<UserEntity>
-//
-//    @Insert(onConflict = OnConflictStrategy.REPLACE)
-//    fun addUser(userEntity: UserEntity): Long
-//
-//    @Delete
-//    fun deleteUser(userEntity: UserEntity): Int
-//
-//    @Query(
-//        "SELECT * FROM favorite " +
-//                "ORDER BY \n" +
-//                "CASE WHEN :isAsc = 1 THEN name END ASC ,\n" +
-//                "CASE WHEN :isAsc = 2 THEN name END DESC"
-//    )
-//    fun getListFavorite(isAsc: Int): MutableList<FavoriteEntity>
-//
-//    @Insert(onConflict = OnConflictStrategy.REPLACE)
-//    fun addFavorite(favoriteEntity: FavoriteEntity): Long
-//
-//    @Delete
-//    fun deleteFavorite(favoriteEntity: FavoriteEntity): Int
+    @Query("SELECT * FROM `transaction`")
+    fun getAllTransaction(): LiveData<MutableList<TransactionEntity>>
+
+    @Query("DELETE FROM `transaction`")
+    fun deleteAllTransaction()
+
+    @Query("DELETE FROM category")
+    fun deleteAllCategory()
+
+    @Query("DELETE FROM account")
+    fun deleteAllAccount()
+
+    @Query("DELETE FROM type_account")
+    fun deleteAllTypeAccount()
+
+    @Insert
+    suspend fun insertAllAccount(data: List<AccountEntity>)
+
+    @Insert
+    suspend fun insertAllCategory(data: List<CategoryEntity>)
+
+    @Insert
+    suspend fun insertAllTypeAccount(data: List<TypeAccountEntity>)
+
+    @Insert
+    suspend fun insertAllTransaction(data: List<TransactionEntity>)
+
 }

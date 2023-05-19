@@ -118,7 +118,7 @@ class EnterDataActivity :
                 showToast("Amount must not null")
             } else {
                 transactionEntity.note = binding.edtNote.text.toString()
-                transactionEntity.amount = binding.edtAmount.text.toString().toFloat()
+                transactionEntity.amount = binding.edtAmount.text.toString().toLong()
                 viewModel.saveEnterData(transactionEntity)
                 showToast("Success.")
                 finish()

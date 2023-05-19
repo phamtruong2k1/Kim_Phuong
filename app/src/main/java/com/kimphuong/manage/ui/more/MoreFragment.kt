@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import com.kimphuong.manage.R
 import com.kimphuong.manage.databinding.FragmentMoreBinding
 import com.kimphuong.manage.utils.openActivity
+import com.kimphuong.manage.utils.setOnSafeClick
 
 class MoreFragment : Fragment() {
 

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:id="@+id/llRoot"
-    android:layout_height="@dimen/_42sdp"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@color/white">
 
@@ -20,7 +20,7 @@
         <ImageView
             android:id="@+id/imgIcon"
             android:layout_width="@dimen/_40sdp"
-            android:layout_height="match_parent"
+            android:layout_height="@dimen/_40sdp"
             android:padding="@dimen/_10sdp"
             android:src="@drawable/ic_cash"/>
 
@@ -41,8 +41,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="467326"
-            android:fontFamily="@font/inter_400"
-            android:padding="@dimen/_10sdp"/>
+            android:fontFamily="@font/inter_400" />
     </LinearLayout>
 
 </LinearLayout>

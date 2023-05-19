@@ -19,7 +19,7 @@ data class AccountEntity @JvmOverloads constructor(
     @ColumnInfo(name = "account_name")
     var name : String = "",
     @ColumnInfo(name = "account_amount")
-    var amount : Float = 0f
+    var amount : Long = 0
 ) : Parcelable {
 
     companion object {

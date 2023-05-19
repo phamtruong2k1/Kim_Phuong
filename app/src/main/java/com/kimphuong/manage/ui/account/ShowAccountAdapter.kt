@@ -2,83 +2,70 @@ package com.kimphuong.manage.ui.account
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.kimphuong.manage.R
-import com.kimphuong.manage.db.dao.UserDao
+import com.kimphuong.manage.base.toMoney
+import com.kimphuong.manage.databinding.LayoutItemShowAccountAdapterBinding
+import com.kimphuong.manage.databinding.LayoutListAccountAdapterBinding
 import com.kimphuong.manage.db.entity.AccountEntity
 import com.kimphuong.manage.db.entity.TypeAccountEntity
 import com.kimphuong.manage.utils.gone
-import com.kimphuong.manage.utils.show
 
 class ShowAccountAdapter(
     var context: Context,
-    var listData: List<TypeAccountEntity>,
-    var listAccount: List<AccountEntity>,
+    var listData: List<Pair<TypeAccountEntity, List<AccountEntity>>>,
     private val listener: ShowAccountAdapterListener
 ) : RecyclerView.Adapter<ShowAccountAdapter.ViewHolder>() {
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        var llRoot: LinearLayout = view.findViewById(R.id.llRoot)
-        var txtName: TextView = view.findViewById(R.id.txtName)
-        var txtAmount: TextView = view.findViewById(R.id.txtAmount)
-        var rcyAccount: RecyclerView = view.findViewById(R.id.rcyAccount)
+    inner class ViewHolder(val binding: LayoutItemShowAccountAdapterBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(data: Pair<TypeAccountEntity, List<AccountEntity>>) {
+            val sum = data.second.sumOf { it.amount.toInt() }
+            binding.txtAmount.text = sum.toMoney()
+            if (sum < 0) {
+                binding.txtAmount.setTextColor(Color.RED)
+            } else {
+                binding.txtAmount.setTextColor(ContextCompat.getColor(context, R.color.color_app))
+            }
+
+            binding.txtName.text = data.first.name
+
+            val adapter = ListAccountAdapter(
+                context,
+                data.first,
+                data.second,
+                object : ListAccountAdapterListener {
+                    override fun click(account: AccountEntity) {
+                        listener.click(account)
+                    }
+
+                    override fun longClick(account: AccountEntity) {
+                        listener.longClick(account)
+                    }
+                })
+            binding.rcyAccount.adapter = adapter
+        }
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(viewGroup.context)
-            .inflate(R.layout.layout_item_show_account_adapter, viewGroup, false)
-
-        return ViewHolder(view)
+        val binding = LayoutItemShowAccountAdapterBinding.inflate(LayoutInflater.from(context))
+        return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        val data = listData[position]
-
-        viewHolder.txtName.text = data.name
-
-        getData(data.type_account_id, viewHolder.llRoot, viewHolder.txtAmount, viewHolder.rcyAccount)
-
+        viewHolder.bind(listData[position])
     }
 
-    private fun getData(
-        type_id: Int,
-        llRoot: LinearLayout,
-        txtAmount: TextView,
-        rcyAccount: RecyclerView
-    ){
-        val list = ArrayList<AccountEntity>()
-        listAccount.forEach {
-            if (it.type_account_id == type_id) {
-                list.add(it)
-            }
-        }
-        if (list.size > 0) {
-            llRoot.show()
-            val adapter = ListAccountAdapter(context, list, object : ListAccountAdapterListener{
-                override fun click(account : AccountEntity) {
-                    listener.click(account)
-                }
-
-                override fun longClick(account: AccountEntity) {
-                    listener.longClick(account)
-                }
-            })
-            rcyAccount.adapter = adapter
-        } else {
-            llRoot.gone()
-        }
-    }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setData(list: List<TypeAccountEntity>, listAcc: List<AccountEntity>) {
-        listData = list
-        listAccount = listAcc
+    fun setData(listData: List<Pair<TypeAccountEntity, List<AccountEntity>>>) {
+        this.listData = listData
         notifyDataSetChanged()
     }
 
@@ -87,6 +74,6 @@ class ShowAccountAdapter(
 }
 
 interface ShowAccountAdapterListener {
-    fun click(account : AccountEntity)
-    fun longClick(account : AccountEntity)
+    fun click(account: AccountEntity)
+    fun longClick(account: AccountEntity)
 }

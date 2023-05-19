@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.kimphuong.manage.R
+import com.kimphuong.manage.base.toMoney
 import com.kimphuong.manage.databinding.ItemCalendarBinding
 import com.kimphuong.manage.db.entity.DayData
 
@@ -27,9 +28,9 @@ class CalendarAdapter(var context: Context, var listData: List<DayData>) :
                 binding.vDivider.visibility = View.VISIBLE
             }
             binding.tvDay.text = data.day.toString()
-            binding.tvIncome.text = data.income.toString()
-            binding.tvExpend.text = data.expend.toString()
-            binding.tvTotal.text = (data.income - data.expend).toString()
+            binding.tvIncome.text = data.income.toMoney()
+            binding.tvExpend.text = data.expend.toMoney()
+            binding.tvTotal.text = (data.income - data.expend).toMoney()
         }
     }
 

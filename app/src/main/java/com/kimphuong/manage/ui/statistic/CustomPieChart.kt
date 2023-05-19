@@ -21,7 +21,7 @@ class CustomPieChart : PieChartRenderer {
 
     override fun drawValue(c: Canvas?, valueText: String?, x: Float, y: Float, color: Int) {
         val adjustX = x + 20
-        val adjustY = y + 125
+        val adjustY = y + 120
         super.drawValue(c, valueText, adjustX, adjustY, color)
     }
 

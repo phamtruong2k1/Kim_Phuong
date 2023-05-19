@@ -59,8 +59,7 @@ class AddAccountActivity : BaseActivity<AccountViewModel, ActivityAddAccountBind
             } else {
                 account.name = binding.edtName.text.toString()
                 try {
-                    account.amount = binding.edtAmount.text.toString().trim().toFloat()
-
+                    account.amount = binding.edtAmount.text.toString().trim().toLong()
                 } catch(e : Exception) {
                     showToast("Amount must be a number.")
                 }

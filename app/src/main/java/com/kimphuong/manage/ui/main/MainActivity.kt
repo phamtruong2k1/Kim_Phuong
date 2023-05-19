@@ -26,7 +26,7 @@ class MainActivity :
     }
 
     override fun initView() {
-        val adapter = TabViewAdapter(this@MainActivity, supportFragmentManager)
+        val adapter = TabViewAdapter(supportFragmentManager)
         binding.viewPager.adapter = adapter
         handleClickBottom(TAB_HOME)
     }

@@ -16,6 +16,8 @@ class AccountViewModel @Inject constructor(val localDataSource: LocalDataSource)
 
     fun getAllAccount() = localDataSource.getAllAccount()
 
+    fun getAllTransaction() = localDataSource.getAllTransaction()
+
     fun deleteAccount(account: AccountEntity){
         doAsync {
             localDataSource.deleteAccount(account)

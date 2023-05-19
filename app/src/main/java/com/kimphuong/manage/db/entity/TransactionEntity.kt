@@ -24,7 +24,7 @@ data class TransactionEntity @JvmOverloads constructor(
     @ColumnInfo(name = "year")
     var year : Int = 0,
     @ColumnInfo(name = "amount")
-    var amount : Float = 0f,
+    var amount : Long = 0,
     @ColumnInfo(name = "type")
     var type : Boolean = true,
     @ColumnInfo(name = "note")

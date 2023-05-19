@@ -112,6 +112,7 @@
             <EditText
                 android:id="@+id/edtAmount"
                 android:layout_width="0dp"
+                android:maxLength="9"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text=""

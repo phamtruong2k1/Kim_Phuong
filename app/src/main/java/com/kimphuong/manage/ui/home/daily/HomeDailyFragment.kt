@@ -1,11 +1,13 @@
 package com.kimphuong.manage.ui.home.daily
 
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.kimphuong.manage.base.BaseFragment
+import com.kimphuong.manage.base.toMoney
 import com.kimphuong.manage.databinding.FragmentHomeDailyBinding
 import com.kimphuong.manage.db.entity.TransactionDetail
 import com.kimphuong.manage.ui.enterdata.EnterDataActivity
@@ -73,17 +75,19 @@ class HomeDailyFragment : BaseFragment<MainViewModel, FragmentHomeDailyBinding>(
 
         val sumIncome = listDataFilter.filter { it.type }.sumOf { it.amount.toInt() }
         val sumExpend = listDataFilter.filter { !it.type }.sumOf { it.amount.toInt() }
-        binding.tvIncome.text = sumIncome.toString()
-        binding.tvExpense.text = sumExpend.toString()
-        binding.tvTotal.text = (sumIncome - sumExpend).toString()
+        binding.tvIncome.text = sumIncome.toMoney()
+        binding.tvExpense.text = sumExpend.toMoney()
+        binding.tvTotal.text = (sumIncome - sumExpend).toMoney()
         if (listDataFilter.size != 0) {
             binding.layoutNoData.visibility = View.GONE
             binding.rcvDailyData.visibility = View.VISIBLE
             binding.layoutTop.visibility = View.VISIBLE
+            binding.vDivider.visibility = View.VISIBLE
         } else {
             binding.layoutNoData.visibility = View.VISIBLE
             binding.rcvDailyData.visibility = View.GONE
             binding.layoutTop.visibility = View.GONE
+            binding.vDivider.visibility = View.GONE
         }
         dailyDataAdapter?.setData(listDataFilter)
     }

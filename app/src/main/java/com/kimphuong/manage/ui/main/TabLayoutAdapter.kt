@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 
 @Suppress("DEPRECATION")
 class TabLayoutAdapter(fragmentManager: FragmentManager) :
-    FragmentStatePagerAdapter(fragmentManager) {
+    FragmentStatePagerAdapter(fragmentManager,BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     private val mListFragment = mutableListOf<Fragment>()
     private val mListTitle = mutableListOf<String>()

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Manage</string>
+    <string name="app_name">Manage Money</string>
     <string name="money_management">MONEY MANAGEMENT</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -60,4 +60,17 @@
     <string name="bottom_statistic">Statistic</string>
     <string name="bottom_account">Account</string>
     <string name="bottom_more">More</string>
+
+    <string name="author_name" translatable="false">Manage Money</string>
+
+    <string name="select_file">Select file from device</string>
+    <string name="restore_file_confirm">All existing data will be overwritten. Are you sure you want to restore?</string>
+    <string name="restore">Restore</string>
+    <string name="restore_success">Restore success</string>
+    <string name="restore_failed">Restore failed</string>
+
+    <string name="delete_all_confirm">Are you sure want to delete all data?</string>
+    <string name="delete_this_data_confirm">Are you sure want to delete this data?</string>
+
+
 </resources>
