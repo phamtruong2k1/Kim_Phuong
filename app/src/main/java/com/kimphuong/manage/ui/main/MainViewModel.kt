@@ -57,9 +57,8 @@ class MainViewModel @Inject constructor(
                 val fileOutputStream = FileOutputStream(file)
                 val dataLines = mutableListOf<String>()
 
-                dataLines.add(getDataLine(listTypeAccountEntity))
+                Log.d("abcc", "doSaveTxt: ${getDataLine(listTransactionEntity)}")
                 dataLines.add(getDataLine(listAccountEntity))
-                dataLines.add(getDataLine(listCategoryEntity))
                 dataLines.add(getDataLine(listTransactionEntity))
 
                 val printWriter = PrintWriter(
@@ -122,7 +121,6 @@ class MainViewModel @Inject constructor(
                 var line: String? = bufferedReader.readLine()
                 var count = 1
                 while (line != null) {
-                    line = bufferedReader.readLine()
                     Log.d("abcc", "readBackupFile:$count, $line")
                     when (count) {
 //                        1 -> {
@@ -138,12 +136,6 @@ class MainViewModel @Inject constructor(
                         }
                         2 -> {
                             val gson = Gson()
-                            val type = object : TypeToken<ArrayList<CategoryEntity?>?>() {}.type
-                            listCategory = gson.fromJson(line, type)
-                            Log.d("abcc", "listCategory: $listCategory")
-                        }
-                        3 -> {
-                            val gson = Gson()
                             val type = object : TypeToken<ArrayList<TransactionEntity?>?>() {}.type
                             listTransaction = gson.fromJson(line, type)
                             Log.d("abcc", "listTransaction: $listTransaction")
@@ -151,10 +143,11 @@ class MainViewModel @Inject constructor(
                         }
                     }
                     count++
+                    line = bufferedReader.readLine()
                 }
                 val isGetEnoughData = listTransaction.isNotEmpty()
                 if (isGetEnoughData) {
-                    insertAllData(listAccount, listCategory, listTransaction)
+                    insertAllData(listAccount, listTransaction)
                 }
                 stateRestore.postValue(isGetEnoughData)
             } catch (e: Exception) {
@@ -166,14 +159,12 @@ class MainViewModel @Inject constructor(
 
     private fun insertAllData(
         listAccount: ArrayList<AccountEntity>,
-        listCategory: ArrayList<CategoryEntity>,
         listTransaction: ArrayList<TransactionEntity>
     ) {
         viewModelScope.launch {
             localDataSource.deleteAllData()
             localDataSource.insertAllData(
                 listAccount,
-                listCategory,
                 listTransaction
             )
         }

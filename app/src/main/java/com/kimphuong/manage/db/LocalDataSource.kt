@@ -46,10 +46,9 @@ class LocalDataSource @Inject constructor(private val userDao: UserDao) {
         userDao.deleteAllTransaction()
     }
 
-    suspend fun insertAllData(listAccount:List<AccountEntity>, listCategory:List<CategoryEntity>, listTransaction:List<TransactionEntity>)
+    suspend fun insertAllData(listAccount:List<AccountEntity>, listTransaction:List<TransactionEntity>)
         = withContext(Dispatchers.IO){
         userDao.insertAllAccount(listAccount)
-        userDao.insertAllCategory(listCategory)
         userDao.insertAllTransaction(listTransaction)
     }
 
