@@ -74,9 +74,6 @@ interface UserDao {
     @Query("DELETE FROM account")
     fun deleteAllAccount()
 
-    @Query("DELETE FROM type_account")
-    fun deleteAllTypeAccount()
-
     @Insert
     suspend fun insertAllAccount(data: List<AccountEntity>)
 

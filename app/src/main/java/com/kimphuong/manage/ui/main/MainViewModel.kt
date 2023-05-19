@@ -154,7 +154,7 @@ class MainViewModel @Inject constructor(
                 }
                 val isGetEnoughData = listTransaction.isNotEmpty()
                 if (isGetEnoughData) {
-                    insertAllData(listAccount, listTypeAccountEntity, listCategory, listTransaction)
+                    insertAllData(listAccount, listCategory, listTransaction)
                 }
                 stateRestore.postValue(isGetEnoughData)
             } catch (e: Exception) {
@@ -166,7 +166,6 @@ class MainViewModel @Inject constructor(
 
     private fun insertAllData(
         listAccount: ArrayList<AccountEntity>,
-        listTypeAccountEntity: ArrayList<TypeAccountEntity>,
         listCategory: ArrayList<CategoryEntity>,
         listTransaction: ArrayList<TransactionEntity>
     ) {
@@ -174,7 +173,6 @@ class MainViewModel @Inject constructor(
             localDataSource.deleteAllData()
             localDataSource.insertAllData(
                 listAccount,
-                listTypeAccountEntity,
                 listCategory,
                 listTransaction
             )

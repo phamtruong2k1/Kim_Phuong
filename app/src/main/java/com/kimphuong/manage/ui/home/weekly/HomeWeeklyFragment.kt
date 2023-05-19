@@ -68,7 +68,6 @@ class HomeWeeklyFragment : BaseFragment<MainViewModel, FragmentHomeWeeklyBinding
             listDataWeek.add(Pair(month, list))
         }
 
-
         listDataWeek.forEach {
             val listDataOfMonth = getDataOfMonth(it)
             listDataDetailFilter.add(Pair(it.first, listDataOfMonth))
@@ -96,12 +95,13 @@ class HomeWeeklyFragment : BaseFragment<MainViewModel, FragmentHomeWeeklyBinding
             val period = "${calFirstDayOfMonth.toDateMonth()} - ${calNextWeek.toDateMonth()}"
             val sumIncome = pair.second.filter {
                 val cal = Calendar.getInstance()
-                cal.set(it.year,it.month,it.day)
+                cal.set(it.year, it.month, it.day)
                 it.type && ((cal.timeInMillis >= calFirstDayOfMonth.timeInMillis && cal.timeInMillis <= calNextWeek.timeInMillis))
             }.sumOf { it.amount.toInt() }
+
             val sumExpend = pair.second.filter {
                 val cal = Calendar.getInstance()
-                cal.set(it.year,it.month,it.day)
+                cal.set(it.year, it.month, it.day)
                 !it.type && ((cal.timeInMillis >= calFirstDayOfMonth.timeInMillis && cal.timeInMillis <= calNextWeek.timeInMillis))
             }.sumOf { it.amount.toInt() }
             if (sumIncome != 0 || sumExpend != 0) {
@@ -118,9 +118,7 @@ class HomeWeeklyFragment : BaseFragment<MainViewModel, FragmentHomeWeeklyBinding
         cal.set(Calendar.MONTH, month)
         cal.set(Calendar.DAY_OF_MONTH, 1)
         val firstDayOfMonth = cal.get(Calendar.DAY_OF_WEEK)
-        if (firstDayOfMonth > Calendar.MONDAY) {
-            cal.add(Calendar.DAY_OF_MONTH, firstDayOfMonth - Calendar.MONDAY)
-        }
+        cal.add(Calendar.DAY_OF_MONTH, Calendar.MONDAY- firstDayOfMonth )
         return cal
     }
 
