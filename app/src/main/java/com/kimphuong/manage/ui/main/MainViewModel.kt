@@ -139,7 +139,6 @@ class MainViewModel @Inject constructor(
                             val type = object : TypeToken<ArrayList<TransactionEntity?>?>() {}.type
                             listTransaction = gson.fromJson(line, type)
                             Log.d("abcc", "listTransaction: $listTransaction")
-
                         }
                     }
                     count++

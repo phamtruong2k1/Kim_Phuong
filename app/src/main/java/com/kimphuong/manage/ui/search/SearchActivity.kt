@@ -1,6 +1,7 @@
 package com.kimphuong.manage.ui.search
 
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import androidx.core.widget.doOnTextChanged
 import com.kimphuong.manage.base.BaseActivity
@@ -60,10 +61,10 @@ class SearchActivity :
             dailyDataAdapter.setData(listOf(),true)
         }else{
             val listSearch = listDataAll.filter {
-                it.note.contains(text.toString())
+                it.note.lowercase().contains(text.lowercase())
             }
             dailyDataAdapter.setData(listSearch,true)
-            currentQuery = ""
+            currentQuery = text
         }
     }
 }
