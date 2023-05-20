@@ -102,7 +102,7 @@ class SplashActivity :
                 if (passCode == SharePreferenceUtils.getPassCode(this)) {
                     startMain()
                 } else {
-                    showToast("Passcode passCode")
+                    showToast("Passcode incorrect")
                     passCode = ""
                     showPass(passCode)
                 }
